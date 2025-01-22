@@ -1672,19 +1672,19 @@
                         <div class="main-text-container">
                             <div class="main-text">
                                 <div id="countdown" style="display: flex; gap: 2rem; justify-content: center; align-items: center; margin-bottom: 2rem;">
-                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.1); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
+                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.3); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
                                         <span id="days" style="font-size: 3rem; font-weight: bold; color: #87CEEB;">00</span>
                                         <span class="label" style="display: block; font-size: 0.9rem; color: #fff; margin-top: 0.5rem;">Days</span>
                                     </div>
-                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.1); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
+                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.3); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
                                         <span id="hours" style="font-size: 3rem; font-weight: bold; color: #87CEEB;">00</span>
                                         <span class="label" style="display: block; font-size: 0.9rem; color: #fff; margin-top: 0.5rem;">Hours</span>
                                     </div>
-                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.1); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
+                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.3); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
                                         <span id="minutes" style="font-size: 3rem; font-weight: bold; color: #87CEEB;">00</span>
                                         <span class="label" style="display: block; font-size: 0.9rem; color: #fff; margin-top: 0.5rem;">Minutes</span>
                                     </div>
-                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.1); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
+                                    <div class="countdown-item" style="text-align: center; background: rgba(135, 206, 235, 0.3); padding: 1rem 2rem; border-radius: 8px; border: 1px solid rgba(135, 206, 235, 0.2);">
                                         <span id="seconds" style="font-size: 3rem; font-weight: bold; color: #87CEEB;">00</span>
                                         <span class="label" style="display: block; font-size: 0.9rem; color: #fff; margin-top: 0.5rem;">Seconds</span>
                                     </div>
@@ -2609,6 +2609,169 @@
             updateCursor();
         });
     </script>
+
+    <script>
+        function updateCountdown() {
+            // Set the target date (February 16, 2025 00:00:00)
+            const targetDate = new Date('2025-02-16T00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            // Calculate time components
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Update the HTML elements with a fade effect
+            const elements = {
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+
+            for (let [id, value] of Object.entries(elements)) {
+                const element = document.getElementById(id);
+                if (element.textContent !== value.toString().padStart(2, '0')) {
+                    element.classList.add('changing');
+                    element.textContent = value.toString().padStart(2, '0');
+                    setTimeout(() => element.classList.remove('changing'), 300);
+                }
+            }
+
+            // If countdown is finished
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<div class="countdown-finished">Event Has Started!</div>';
+            }
+        }
+
+        // Update countdown immediately and then every second
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+    <style>
+        /* Enhanced countdown styles */
+        #countdown {
+            background: rgba(52, 152, 219, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.1);
+        }
+
+        .countdown-item {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-item span {
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item span.changing {
+            animation: numberChange 0.3s ease;
+        }
+
+        @keyframes numberChange {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .countdown-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .countdown-item:hover .label {
+            color: #3498db;
+        }
+
+        .countdown-finished {
+            font-size: 3rem;
+            color: #3498db;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            #countdown {
+                padding: 1rem;
+            }
+            
+            .countdown-item span {
+                font-size: 2rem;
+            }
+            
+            .label {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #countdown {
+                padding: 0.5rem;
+            }
+            
+            .countdown-item span {
+                font-size: 1.5rem;
+            }
+            
+            .label {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 </body>
 
 </html>
