@@ -468,17 +468,49 @@
     </style>
 </head>
 <body>
-    <!-- Simplified Navbar -->
+    <!-- Navbar -->
     <div class="navbar">
         <div class="navbar-container">
             <a href="/" class="nav-logo-link">
                 <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="nav-logo">
             </a>
-            <div class="game-name"><span class="red-text">UDGAM // </span>2025</div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Screen Menu -->
+    <div class="fullscreen-menu">
+        <div class="menu-content">
+            <div class="menu-header">
+                <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="menu-logo">
+                <div class="menu-close">×</div>
+            </div>
+            <nav class="menu-nav">
+                <a href="index.html" class="menu-link">Home</a>
+                <a href="events.html" class="menu-link">Events</a>
+                <a href="cricket.html" class="menu-link">Cricket</a>
+                <a href="basketball.html" class="menu-link">Basketball</a>
+                <a href="football.html" class="menu-link">Football</a>
+                <a href="volleyball.html" class="menu-link">Volleyball</a>
+                <a href="#contact" class="menu-link">Contact</a>
+            </nav>
+            <div class="menu-footer">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 
     <style>
+        /* Updated Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -488,7 +520,7 @@
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 191, 255, 0.2);
-            height: 60px;
+            height: 80px;
         }
 
         .navbar-container {
@@ -497,27 +529,155 @@
             align-items: center;
             padding: 0 40px;
             height: 100%;
-        }
-
-        .nav-logo-link {
-            display: flex;
-            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .nav-logo {
-            width: 80px;
+            width: 100px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 30px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover .bar {
+            background: #00bfff;
+        }
+
+        /* Full Screen Menu Styles */
+        .fullscreen-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .fullscreen-menu.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .menu-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 40px;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .menu-logo {
+            width: 150px;
             height: auto;
         }
 
-        .game-name {
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 2px;
+        .menu-close {
+            font-size: 48px;
             color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .red-text {
+        .menu-close:hover {
             color: #00bfff;
+            transform: rotate(90deg);
+        }
+
+        .menu-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-link {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .fullscreen-menu.active .menu-link {
+            opacity: 1;
+            transform: translateY(0);
+            animation: menuLinkFadeIn 0.5s ease forwards;
+        }
+
+        .menu-link:hover {
+            color: #00bfff;
+            padding-left: 20px;
+        }
+
+        .menu-footer {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        @keyframes menuLinkFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media screen and (max-width: 767px) {
@@ -525,15 +685,51 @@
                 padding: 0 20px;
             }
             
-            .nav-logo {
-                width: 70px;
+            .menu-content {
+                padding: 60px 20px;
             }
             
-            .game-name {
-                font-size: 14px;
+            .menu-link {
+                font-size: 24px;
+            }
+            
+            .menu-logo {
+                width: 120px;
             }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuClose = document.querySelector('.menu-close');
+            const fullscreenMenu = document.querySelector('.fullscreen-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+            
+            menuToggle.addEventListener('click', () => {
+                fullscreenMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Animate menu links
+                menuLinks.forEach((link, index) => {
+                    link.style.animationDelay = `${0.1 * (index + 1)}s`;
+                });
+            });
+            
+            menuClose.addEventListener('click', () => {
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close menu when clicking a link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    fullscreenMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+    </script>
 
     <!-- Hero Section -->
     <section class="hero-section">
