@@ -346,6 +346,9 @@
             padding: 30px;
             text-align: center;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .member-card:hover {
@@ -363,6 +366,7 @@
             border: 3px solid rgba(0, 191, 255, 0.3);
             padding: 5px;
             position: relative;
+            overflow: hidden;
         }
 
         .member-image img {
@@ -372,17 +376,25 @@
             object-fit: cover;
         }
 
+        .member-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 150px;
+        }
+
         .member-info h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 10px;
             color: #fff;
+            word-wrap: break-word;
         }
 
         .member-info .role {
             font-size: 16px;
-            color: #00bfff;
+            color: #87CEEB;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -392,31 +404,34 @@
             color: #aaa;
             font-size: 16px;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .member-social {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            padding-top: 15px;
+            margin-top: auto;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            background: rgba(0, 191, 255, 0.1);
+            background: rgba(135, 206, 235, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 18px;
+            color: #87CEEB;
+            font-size: 16px;
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .social-link:hover {
-            background: rgba(0, 191, 255, 0.2);
+            background: #87CEEB;
+            color: #fff;
             transform: translateY(-3px);
         }
     </style>
@@ -513,6 +528,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Praveen&background=87CEEB&color=fff&size=200" alt="Praveen">
+                        </div>
+                        <div class="member-info">
+                            <h3>Praveen</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Oversees sports competitions and traditional event management</p>
                             <div class="member-social">
                                 <a href="mailto:praveen@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -525,16 +545,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Praveen</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Oversees sports competitions and traditional event management</p>
-            
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=A+Teja&background=87CEEB&color=fff&size=200" alt="A.Teja">
+                        </div>
+                        <div class="member-info">
+                            <h3>A.Teja</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Assists in sports event coordination and execution</p>
                             <div class="member-social">
                                 <a href="mailto:teja@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -547,11 +566,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>A.Teja</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Assists in sports event coordination and execution</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -563,6 +577,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Viraj&background=87CEEB&color=fff&size=200" alt="Viraj">
+                        </div>
+                        <div class="member-info">
+                            <h3>Viraj</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Cultural/entertainment activities</p>
                             <div class="member-social">
                                 <a href="mailto:viraj@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -572,15 +591,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Viraj</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Cultural/entertainment activities</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Nawaz&background=87CEEB&color=fff&size=200" alt="Nawaz">
+                        </div>
+                        <div class="member-info">
+                            <h3>Nawaz</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Supports cultural event organization</p>
                             <div class="member-social">
                                 <a href="mailto:nawaz@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -589,11 +608,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Nawaz</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Supports cultural event organization</p>
                         </div>
                     </div>
                 </div>
@@ -606,6 +620,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Akhil+Mareedu&background=87CEEB&color=fff&size=200" alt="Akhil Mareedu">
+                        </div>
+                        <div class="member-info">
+                            <h3>Akhil Mareedu</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Manages accommodation and guest support</p>
                             <div class="member-social">
                                 <a href="mailto:akhil@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -615,15 +634,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Akhil Mareedu</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Manages accommodation and guest support</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Bhuvan&background=87CEEB&color=fff&size=200" alt="Bhuvan">
+                        </div>
+                        <div class="member-info">
+                            <h3>Bhuvan</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Assists in hospitality management</p>
                             <div class="member-social">
                                 <a href="mailto:bhuvan@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -632,11 +651,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Bhuvan</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Assists in hospitality management</p>
                         </div>
                     </div>
                 </div>
@@ -649,6 +663,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=A+Jithin&background=87CEEB&color=fff&size=200" alt="A.Jithin">
+                        </div>
+                        <div class="member-info">
+                            <h3>A.Jithin</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Handles registration and ID cards</p>
                             <div class="member-social">
                                 <a href="mailto:jithin@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -658,15 +677,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>A.Jithin</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Handles registration and ID cards</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Uday&background=87CEEB&color=fff&size=200" alt="Uday">
+                        </div>
+                        <div class="member-info">
+                            <h3>Uday</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages documentation process</p>
                             <div class="member-social">
                                 <a href="mailto:uday@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -675,11 +694,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Uday</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages documentation process</p>
                         </div>
                     </div>
                 </div>
@@ -692,6 +706,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Harish+Bechaa&background=87CEEB&color=fff&size=200" alt="Harish Bechaa">
+                        </div>
+                        <div class="member-info">
+                            <h3>Harish Bechaa</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Manages venues and transportation</p>
                             <div class="member-social">
                                 <a href="mailto:harish@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -701,15 +720,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Harish Bechaa</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Manages venues and transportation</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=K+V+Sathwik&background=87CEEB&color=fff&size=200" alt="K.V.Sathwik">
+                        </div>
+                        <div class="member-info">
+                            <h3>K.V.Sathwik</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Coordinates logistics operations</p>
                             <div class="member-social">
                                 <a href="mailto:sathwik@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -718,11 +737,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>K.V.Sathwik</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Coordinates logistics operations</p>
                         </div>
                     </div>
                 </div>
@@ -735,6 +749,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Priyanka&background=87CEEB&color=fff&size=200" alt="Priyanka">
+                        </div>
+                        <div class="member-info">
+                            <h3>Priyanka</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Prepares certificates and awards</p>
                             <div class="member-social">
                                 <a href="mailto:priyanka@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -744,15 +763,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Priyanka</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Prepares certificates and awards</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Bhavana&background=87CEEB&color=fff&size=200" alt="Bhavana">
+                        </div>
+                        <div class="member-info">
+                            <h3>Bhavana</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages content writing</p>
                             <div class="member-social">
                                 <a href="mailto:bhavana@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -761,11 +780,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Bhavana</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages content writing</p>
                         </div>
                     </div>
                 </div>
@@ -778,6 +792,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Navanit&background=87CEEB&color=fff&size=200" alt="Navanit">
+                        </div>
+                        <div class="member-info">
+                            <h3>Navanit</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Manages branding and social media</p>
                             <div class="member-social">
                                 <a href="mailto:navanit@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -785,17 +804,20 @@
                                 <a href="https://linkedin.com/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
+                                <a href="https://instagram.com/" target="_blank" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Navanit</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Manages branding and social media</p>
                         </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Abhinav&background=87CEEB&color=fff&size=200" alt="Abhinav">
+                        </div>
+                        <div class="member-info">
+                            <h3>Abhinav</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Leads digital marketing efforts</p>
                             <div class="member-social">
                                 <a href="mailto:abhinav@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -803,12 +825,10 @@
                                 <a href="https://linkedin.com/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
+                                <a href="https://instagram.com/" target="_blank" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Abhinav</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Leads digital marketing efforts</p>
                         </div>
                     </div>
                 </div>
@@ -821,6 +841,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Rakesh+Settipalli&background=87CEEB&color=fff&size=200" alt="Rakesh settipalli">
+                        </div>
+                        <div class="member-info">
+                            <h3>Rakesh settipalli</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Manages outreach campaigns</p>
                             <div class="member-social">
                                 <a href="mailto:rakesh@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -830,15 +855,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Rakesh settipalli</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Manages outreach campaigns</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Tarun+J&background=87CEEB&color=fff&size=200" alt="Tarun.J">
+                        </div>
+                        <div class="member-info">
+                            <h3>Tarun.J</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Leads community engagement</p>
                             <div class="member-social">
                                 <a href="mailto:tarun@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -847,11 +872,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Tarun.J</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Leads community engagement</p>
                         </div>
                     </div>
                 </div>
@@ -864,6 +884,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Wasim+Raja&background=87CEEB&color=fff&size=200" alt="Wasim Raja">
+                        </div>
+                        <div class="member-info">
+                            <h3>Wasim Raja</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Manages food and beverages</p>
                             <div class="member-social">
                                 <a href="mailto:wasim@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -873,15 +898,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Wasim Raja</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Manages food and beverages</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Vardhan&background=87CEEB&color=fff&size=200" alt="Vardhan">
+                        </div>
+                        <div class="member-info">
+                            <h3>Vardhan</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Coordinates catering services</p>
                             <div class="member-social">
                                 <a href="mailto:vardhan@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -890,11 +915,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Vardhan</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Coordinates catering services</p>
                         </div>
                     </div>
                 </div>
@@ -907,6 +927,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Prasana&background=87CEEB&color=fff&size=200" alt="Prasana">
+                        </div>
+                        <div class="member-info">
+                            <h3>Prasana</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Designs banners and posters</p>
                             <div class="member-social">
                                 <a href="mailto:prasana@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -919,15 +944,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Prasana</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Designs banners and posters</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Gnanesh&background=87CEEB&color=fff&size=200" alt="Gnanesh">
+                        </div>
+                        <div class="member-info">
+                            <h3>Gnanesh</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages technical infrastructure</p>
                             <div class="member-social">
                                 <a href="mailto:gnanesh@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -940,11 +965,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Gnanesh</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages technical infrastructure</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -956,6 +976,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=M+Arjun&background=87CEEB&color=fff&size=200" alt="M.Arjun">
+                        </div>
+                        <div class="member-info">
+                            <h3>M.Arjun</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Handles sponsorship acquisition</p>
                             <div class="member-social">
                                 <a href="mailto:arjun@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -965,15 +990,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>M.Arjun</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Handles sponsorship acquisition</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=M+Rohan&background=87CEEB&color=fff&size=200" alt="M.Rohan">
+                        </div>
+                        <div class="member-info">
+                            <h3>M.Rohan</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages financial planning</p>
                             <div class="member-social">
                                 <a href="mailto:rohan@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -982,11 +1007,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>M.Rohan</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages financial planning</p>
                         </div>
                     </div>
                 </div>
@@ -999,6 +1019,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Jayadar&background=87CEEB&color=fff&size=200" alt="Jayadar">
+                        </div>
+                        <div class="member-info">
+                            <h3>Jayadar</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Covers all event photography</p>
                             <div class="member-social">
                                 <a href="mailto:jayadar@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1011,15 +1036,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Jayadar</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Covers all event photography</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Joyson&background=87CEEB&color=fff&size=200" alt="Joyson">
+                        </div>
+                        <div class="member-info">
+                            <h3>Joyson</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages videography team</p>
                             <div class="member-social">
                                 <a href="mailto:joyson@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1032,11 +1057,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Joyson</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages videography team</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1048,6 +1068,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Nidhi&background=87CEEB&color=fff&size=200" alt="Nidhi">
+                        </div>
+                        <div class="member-info">
+                            <h3>Nidhi</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Plans ceremonies and parades</p>
                             <div class="member-social">
                                 <a href="mailto:nidhi@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1057,15 +1082,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Nidhi</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Plans ceremonies and parades</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Likitha&background=87CEEB&color=fff&size=200" alt="Likitha">
+                        </div>
+                        <div class="member-info">
+                            <h3>Likitha</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Coordinates event ceremonies</p>
                             <div class="member-social">
                                 <a href="mailto:likitha@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1074,11 +1099,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Likitha</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Coordinates event ceremonies</p>
                         </div>
                     </div>
                 </div>
@@ -1091,6 +1111,11 @@
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Rohith&background=87CEEB&color=fff&size=200" alt="Rohith">
+                        </div>
+                        <div class="member-info">
+                            <h3>Rohith</h3>
+                            <p class="role">Head</p>
+                            <p class="description">Ensures safety and medical support</p>
                             <div class="member-social">
                                 <a href="mailto:rohith@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1100,15 +1125,15 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="member-info">
-                            <h3>Rohith</h3>
-                            <p class="role">Head</p>
-                            <p class="description">Ensures safety and medical support</p>
-                        </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
                             <img src="https://ui-avatars.com/api/?name=Sesank&background=87CEEB&color=fff&size=200" alt="Sesank">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sesank</h3>
+                            <p class="role">Co-Head</p>
+                            <p class="description">Manages emergency response</p>
                             <div class="member-social">
                                 <a href="mailto:sesank@udgam.com" class="social-link">
                                     <i class="fas fa-envelope"></i>
@@ -1117,11 +1142,6 @@
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Sesank</h3>
-                            <p class="role">Co-Head</p>
-                            <p class="description">Manages emergency response</p>
                         </div>
                     </div>
                 </div>
