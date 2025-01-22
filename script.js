@@ -187,3 +187,54 @@ window.addEventListener('scroll', function() {
         navbar.classList.remove('scrolled');
     }
 });
+
+// Team page scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+    const committeeSections = document.querySelectorAll('.committee-section');
+    const memberCards = document.querySelectorAll('.member-card');
+    
+    // Set initial card indices for staggered animations
+    memberCards.forEach((card, index) => {
+        card.style.setProperty('--card-index', index % 2);
+    });
+
+    // Intersection Observer for committee sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    committeeSections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Mobile menu toggle
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuButton && navLinks) {
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        });
+    }
+});
