@@ -434,6 +434,213 @@
             color: #fff;
             transform: translateY(-3px);
         }
+
+        /* Executive Section Styles */
+        .executive-section {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
+            height: 300vh; /* Increased height to allow for smooth scrolling */
+            position: relative;
+        }
+        
+        .executive-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .executive-header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .executive-tag {
+            color: #ff0000;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .executive-grid {
+            display: flex;
+            gap: 40px;
+            padding: 0 20px;
+            position: relative;
+            will-change: transform;
+            transform: translateX(0);
+            margin-left: 50%; /* Start from center */
+        }
+
+        .executive-card {
+            min-width: 300px;
+            flex-shrink: 0;
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .executive-card:hover {
+            transform: translateY(calc(-10px + var(--parallax-offset, 0)));
+            background: rgba(255, 0, 0, 0.1);
+            border-color: rgba(255, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+        }
+
+        .executive-image-wrap {
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+        }
+
+        .executive-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .executive-card:hover .executive-image {
+            transform: scale(1.1);
+        }
+
+        .executive-content {
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .executive-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ff0000;
+        }
+
+        .executive-position {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .executive-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .executive-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0000;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .executive-social a:hover {
+            background: #ff0000;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            background: #1a1a1a;
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-card {
+            background: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-image-wrap {
+            position: relative;
+            padding-top: 100%;
+        }
+
+        .team-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .team-position {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .team-social a {
+            color: #666;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .team-social a:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -465,6 +672,129 @@
         </div>
     </section>
 
+    <!-- Executive Section -->
+    <section class="executive-section">
+        <div class="executive-container">
+            <div class="executive-header">
+                <div class="executive-tag">LEADERSHIP</div>
+                <h2 class="committee-title">OUR <span style="color: #ff0000;">EXECUTIVES</span></h2>
+            </div>
+            <div class="executive-grid">
+                <!-- Executive Card 1 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff0000&color=fff&size=200" alt="Executive 1" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">John Doe</h3>
+                        <div class="executive-position">Festival Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 2 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=ff0000&color=fff&size=200" alt="Executive 2" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">Jane Smith</h3>
+                        <div class="executive-position">Managing Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 3 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=ff0000&color=fff&size=200" alt="Executive 3" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">Mike Johnson</h3>
+                        <div class="executive-position">Technical Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 4 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Williams&background=ff0000&color=fff&size=200" alt="Executive 4" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">Sarah Williams</h3>
+                        <div class="executive-position">Operations Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 5 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=David+Chen&background=ff0000&color=fff&size=200" alt="Executive 5" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">David Chen</h3>
+                        <div class="executive-position">Marketing Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 6 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=Emily+Brown&background=ff0000&color=fff&size=200" alt="Executive 6" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">Emily Brown</h3>
+                        <div class="executive-position">Creative Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Card 7 -->
+                <div class="executive-card">
+                    <div class="executive-image-wrap">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Turner&background=ff0000&color=fff&size=200" alt="Executive 7" class="executive-image">
+                    </div>
+                    <div class="executive-content">
+                        <h3 class="executive-name">Alex Turner</h3>
+                        <div class="executive-position">Finance Director</div>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Website Committee Section -->
     <section class="committee-section">
         <div class="section-bg"></div>
@@ -479,7 +809,7 @@
                 <!-- Head -->
                 <div class="member-card">
                     <div class="member-image">
-                        <img src="https://ui-avatars.com/api/?name=Pushpak+Srinivas&background=00bfff&color=fff&size=200" alt="Pushpak Srinivas">
+                        <img src="https://raw.githubusercontent.com/Adarshagupta/UDGAM/refs/heads/main/img/team/10.png?token=GHSAT0AAAAAAC5XIAM3OG2T2FZFH5AVP2ACZ4SOJMA" alt="Pushpak Srinivas">
                     </div>
                     <div class="member-info">
                         <h3>Pushpak Srinivas</h3>
@@ -496,7 +826,7 @@
                 <!-- Co-Head -->
                 <div class="member-card">
                     <div class="member-image">
-                        <img src="https://ui-avatars.com/api/?name=Adarsh+Gupta&background=00bfff&color=fff&size=200" alt="Adarsh Gupta">
+                        <img src="https://raw.githubusercontent.com/Adarshagupta/UDGAM/refs/heads/main/img/team/20.png?token=GHSAT0AAAAAAC5XIAM27NTOA4W4SUQ4UGAGZ4SOK4Q" alt="Adarsh Gupta">
                     </div>
                     <div class="member-info">
                         <h3>Adarsh Gupta</h3>
@@ -527,7 +857,7 @@
                 <div class="team-members">
                     <div class="member-card">
                         <div class="member-image">
-                            <img src="https://ui-avatars.com/api/?name=Praveen&background=87CEEB&color=fff&size=200" alt="Praveen">
+                            <img src="https://github.com/Adarshagupta/UDGAM/blob/main/img/team/22.png?raw=true" alt="Praveen">
                         </div>
                         <div class="member-info">
                             <h3>Praveen</h3>
@@ -1174,5 +1504,56 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const executiveSection = document.querySelector('.executive-section');
+        const executiveGrid = document.querySelector('.executive-grid');
+        const cards = document.querySelectorAll('.executive-card');
+        
+        // Calculate total scroll distance
+        const cardWidth = 340; // card width + gap
+        const totalCardsWidth = cards.length * cardWidth;
+        const startOffset = window.innerWidth / 2; // Half the viewport width
+        const scrollDistance = totalCardsWidth + startOffset;
+        
+        // Update section height
+        executiveSection.style.height = `${scrollDistance}px`;
+        
+        function updateScroll() {
+            const sectionRect = executiveSection.getBoundingClientRect();
+            const sectionTop = -sectionRect.top; // Make positive for easier calculation
+            const progress = Math.max(0, Math.min(1, sectionTop / (scrollDistance - window.innerHeight)));
+            
+            // Calculate the horizontal movement
+            const moveX = progress * totalCardsWidth;
+            executiveGrid.style.transform = `translateX(-${moveX}px)`;
+            
+            // Add parallax effect to cards
+            cards.forEach((card, index) => {
+                const cardProgress = Math.max(0, Math.min(1, 
+                    (sectionTop - (index * cardWidth)) / (window.innerHeight + cardWidth)
+                ));
+                const yOffset = cardProgress * 30; // Maximum 30px vertical movement
+                card.style.transform = `translateY(${yOffset}px)`;
+            });
+        }
+        
+        // Initial update
+        updateScroll();
+        
+        // Update on scroll
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(updateScroll);
+        });
+        
+        // Update on resize
+        window.addEventListener('resize', () => {
+            // Recalculate dimensions
+            const newScrollDistance = totalCardsWidth + (window.innerWidth / 2);
+            executiveSection.style.height = `${newScrollDistance}px`;
+            updateScroll();
+        });
+    });
+    </script>
 </body>
 </html> 
