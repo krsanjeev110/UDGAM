@@ -468,8 +468,35 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag">UDGAM 2024</div>
+            <h1 class="hero-title">Sports Events</h1>
+            <p class="hero-subtitle">Experience the thrill of competition at SRM University AP's premier sports festival. Join us for an unforgettable celebration of athleticism, teamwork, and sporting excellence.</p>
+            <div class="hero-buttons">
+                <a href="#events" class="hero-button">
+                    <i class="fas fa-trophy"></i>
+                    View Events
+                </a>
+                <a href="#register" class="hero-button">
+                    <i class="fas fa-user-plus"></i>
+                    Register Now
+                </a>
+            </div>
+        </div>
+        <a href="#events" class="hero-scroll">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="scroll-icon">
+                <div class="scroll-dot"></div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Updated Navbar -->
+    <nav class="navbar">
         <div class="navbar-container">
             <a href="/" class="nav-logo-link">
                 <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="nav-logo">
@@ -480,9 +507,9 @@
                 <div class="bar"></div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Full Screen Menu -->
+    <!-- Updated Fullscreen Menu -->
     <div class="fullscreen-menu">
         <div class="menu-content">
             <div class="menu-header">
@@ -490,13 +517,41 @@
                 <div class="menu-close">×</div>
             </div>
             <nav class="menu-nav">
-                <a href="index.html" class="menu-link">Home</a>
-                <a href="events.html" class="menu-link">Events</a>
-                <a href="cricket.html" class="menu-link">Cricket</a>
-                <a href="basketball.html" class="menu-link">Basketball</a>
-                <a href="football.html" class="menu-link">Football</a>
-                <a href="volleyball.html" class="menu-link">Volleyball</a>
-                <a href="#contact" class="menu-link">Contact</a>
+                <a href="/" class="menu-link">
+                    <span class="menu-number">01</span>
+                    <span class="menu-text">
+                        <span class="menu-title">HOME</span>
+                        <span class="menu-desc">Back to main page</span>
+                    </span>
+                </a>
+                <a href="#about" class="menu-link">
+                    <span class="menu-number">02</span>
+                    <span class="menu-text">
+                        <span class="menu-title">ABOUT</span>
+                        <span class="menu-desc">Our story & mission</span>
+                    </span>
+                </a>
+                <a href="events.html" class="menu-link">
+                    <span class="menu-number">03</span>
+                    <span class="menu-text">
+                        <span class="menu-title">EVENTS</span>
+                        <span class="menu-desc">Competitions & activities</span>
+                    </span>
+                </a>
+                <a href="team.html" class="menu-link">
+                    <span class="menu-number">04</span>
+                    <span class="menu-text">
+                        <span class="menu-title">TEAM</span>
+                        <span class="menu-desc">Meet the organizers</span>
+                    </span>
+                </a>
+                <a href="#contact" class="menu-link">
+                    <span class="menu-number">05</span>
+                    <span class="menu-text">
+                        <span class="menu-title">CONTACT</span>
+                        <span class="menu-desc">Get in touch</span>
+                    </span>
+                </a>
             </nav>
             <div class="menu-footer">
                 <div class="social-links">
@@ -521,6 +576,12 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 191, 255, 0.2);
             height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            height: 70px;
         }
 
         .navbar-container {
@@ -549,6 +610,7 @@
             flex-direction: column;
             gap: 6px;
             z-index: 1001;
+            padding: 10px;
         }
 
         .bar {
@@ -562,11 +624,23 @@
             background: #00bfff;
         }
 
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
         /* Full Screen Menu Styles */
         .fullscreen-menu {
             position: fixed;
             inset: 0;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 999;
             display: none;
             opacity: 0;
@@ -583,6 +657,8 @@
             display: flex;
             flex-direction: column;
             padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .menu-header {
@@ -612,61 +688,68 @@
         .menu-nav {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 40px;
+            margin-top: 60px;
+            padding: 0 40px;
         }
 
         .menu-link {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
-            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 30px;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.3);
+            min-width: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-desc {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover .menu-number {
+            color: #FF1F57;
+            transform: translateX(10px);
+        }
+
+        .menu-link:hover .menu-title {
+            color: #FF1F57;
+            transform: translateX(10px);
+        }
+
+        .menu-link:hover .menu-desc {
+            color: rgba(255, 31, 87, 0.7);
+            transform: translateX(10px);
         }
 
         .fullscreen-menu.active .menu-link {
-            opacity: 1;
-            transform: translateY(0);
             animation: menuLinkFadeIn 0.5s ease forwards;
-        }
-
-        .menu-link:hover {
-            color: #00bfff;
-            padding-left: 20px;
-        }
-
-        .menu-footer {
-            margin-top: auto;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(0, 191, 255, 0.1);
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: rgba(0, 191, 255, 0.2);
-            transform: translateY(-3px);
         }
 
         @keyframes menuLinkFadeIn {
@@ -680,7 +763,7 @@
             }
         }
 
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 768px) {
             .navbar-container {
                 padding: 0 20px;
             }
@@ -705,9 +788,12 @@
             const menuClose = document.querySelector('.menu-close');
             const fullscreenMenu = document.querySelector('.fullscreen-menu');
             const menuLinks = document.querySelectorAll('.menu-link');
+            const navbar = document.querySelector('.navbar');
             
+            // Toggle menu
             menuToggle.addEventListener('click', () => {
                 fullscreenMenu.classList.add('active');
+                menuToggle.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
                 // Animate menu links
@@ -716,8 +802,10 @@
                 });
             });
             
+            // Close menu
             menuClose.addEventListener('click', () => {
                 fullscreenMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             });
             
@@ -725,14 +813,21 @@
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     fullscreenMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
                     document.body.style.overflow = '';
                 });
             });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
         });
     </script>
-
-    <!-- Hero Section -->
-
 
     <!-- Add this section after the hero section and before the individual sports sections -->
     <section class="sports-categories" id="events">
