@@ -1,4 +1,3 @@
-
 /* Scrollbar Styles - Added at the top for higher specificity */
 :root {
     --scrollbar-color: #87CEEB;
@@ -153,6 +152,26 @@ body {
     height: 0 !important;
     pointer-events: none !important;
     overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* Additional selectors to ensure complete removal */
+.w-webflow-badge, 
+div[class*="w-webflow-badge"],
+a[class*="w-webflow-badge"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Target parent container if exists */
+div:has(.w-webflow-badge) {
+    display: none !important;
 }
 
 .about-section {
@@ -350,8 +369,6 @@ body {
     display: inline-block;
     position: relative;
 }
-
-
 
 .stat-label {
     font-size: 16px;
@@ -659,7 +676,6 @@ body {
     transform: rotateY(0) translateX(0) translateZ(0);
     opacity: 1;
 }
-
 
 .campus-overlay {
     position: absolute;
@@ -2392,4 +2408,11 @@ button:hover~.custom-cursor,
       &:nth-child(5) { left: calc(50% + 280px); }
       &:nth-child(6) { left: calc(50% + 420px); opacity: 0; }
     }
+  }
+  .section{
+    margin-top: 40px;
+  }
+  h2{
+    color: skyblue;
+    font: bold;
   }
