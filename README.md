@@ -11,10 +11,8 @@ Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the 
 
 Get a sneak peek into Udgam 2025:
 
-<video controls width="100%">
-  <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4" type="video/mp4">
-  Your browser does not support the video tag. 
-</video>
+[![Watch the Video on YouTube](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+
 
 ---
 ## 🚀 About the Project
