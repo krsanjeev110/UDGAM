@@ -195,6 +195,126 @@
 .bottom-nav ul li a:hover {
     text-decoration: underline;
 }
+        /* Tab Styles */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: rgba(135, 206, 235, 0.1);
+            border: 2px solid rgba(135, 206, 235, 0.3);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-button i {
+            font-size: 18px;
+        }
+
+        .tab-button:hover {
+            background: rgba(135, 206, 235, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: #87CEEB;
+            color: #0a0a0a;
+            border-color: #87CEEB;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(135, 206, 235, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(135, 206, 235, 0.3);
+            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.1);
+        }
+
+        .events-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .more-events-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: #87CEEB;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .more-events-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(135, 206, 235, 0.2);
+        }
+
+        .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .more-events-btn:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .tabs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .event-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
                     </style>
                     <div class="menu-button w-nav-button"><img
                             src="https://cdn.prod.website-files.com/66db7f57ef9c0c7a7026f696/66db7f57ef9c0c7a7026f6cc_Menu%20Icon.svg"
@@ -756,131 +876,7 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     </section>
-    
 
-
-    <style>
-        /* Tab Styles */
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        .tab-button {
-            padding: 15px 30px;
-            background: rgba(135, 206, 235, 0.1);
-            border: 2px solid rgba(135, 206, 235, 0.3);
-            border-radius: 50px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tab-button i {
-            font-size: 18px;
-        }
-
-        .tab-button:hover {
-            background: rgba(135, 206, 235, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .tab-button.active {
-            background: #87CEEB;
-            color: #0a0a0a;
-            border-color: #87CEEB;
-        }
-
-        .tab-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .event-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(135, 206, 235, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(135, 206, 235, 0.3);
-            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.1);
-        }
-
-        .events-cta {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .more-events-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            background: #87CEEB;
-            color: #0a0a0a;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .more-events-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(135, 206, 235, 0.2);
-        }
-
-        .btn-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .more-events-btn:hover .btn-icon {
-            transform: translateX(5px);
-        }
-
-        @media screen and (max-width: 768px) {
-            .tabs-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .tab-button {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .event-card {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1011,615 +1007,6 @@
         </div>
     </div>
 
-    <style>
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .menu-container {
-            display: flex;
-            height: 100%;
-        }
-
-        .menu-left {
-            width: 45%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .menu-background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .menu-background-video video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.1);
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .menu-overlay.active .menu-background-video video {
-            transform: scale(1);
-        }
-
-        .menu-image {
-            border: #87CEEB 2px solid;
-            box-shadow: 0 0 10px #87CEEB;
-
-        }
-
-        .menu-image-overlay {
-            position: absolute;
-            border: #87cfeb74 2px solid;
-            box-shadow: 0 0 10px #87cfeb;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg,
-                    rgba(0, 0, 0, 0.9) 0%,
-                    rgba(0, 0, 0, 0.7) 50%,
-                    rgba(0, 0, 0, 0.4) 100%);
-        }
-
-        .menu-left-content {
-            position: absolute;
-            bottom: 4rem;
-            left: 4rem;
-            color: white;
-            z-index: 1;
-        }
-
-        .menu-logo {
-            margin-bottom: 2rem;
-        }
-
-        .menu-logo img {
-            width: 150px;
-            height: auto;
-        }
-
-        .menu-title {
-            font-size: 4rem;
-            font-weight: 800;
-            margin: 0;
-            line-height: 1;
-            letter-spacing: -1px;
-        }
-
-        .year-text {
-            background: linear-gradient(45deg, #ff3366, #ff0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .menu-subtitle {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            opacity: 0.8;
-            letter-spacing: 2px;
-        }
-
-        .menu-right {
-            width: 55%;
-            padding: 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .menu-close-btn {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-        }
-
-        .close-btn-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-close-btn:hover .close-btn-inner {
-            transform: rotate(90deg);
-        }
-
-        .close-btn-inner span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: white;
-            position: absolute;
-            top: 50%;
-            transform-origin: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .menu-close-btn:hover span {
-            background: #ff3366;
-        }
-
-        .close-btn-inner span:first-child {
-            transform: rotate(45deg);
-        }
-
-        .close-btn-inner span:last-child {
-            transform: rotate(-45deg);
-        }
-
-        .menu-nav-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .menu-nav-item {
-            margin: 2rem 0;
-            transform: translateX(-30px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .menu-overlay.active .menu-nav-item {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .menu-nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 0;
-            position: relative;
-        }
-
-        .menu-nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #ff3366;
-            transition: width 0.3s ease;
-        }
-
-        .menu-nav-link:hover::after {
-            width: 100%;
-        }
-
-        .menu-nav-text {
-            font-size: 3rem;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .menu-nav-desc {
-            font-size: 0.9rem;
-            opacity: 0.6;
-            margin-top: 0.5rem;
-        }
-
-        .menu-nav-number {
-            font-family: 'Courier New', monospace;
-            font-size: 1.2rem;
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
-        }
-
-        .menu-nav-link:hover .menu-nav-text {
-            color: #ff3366;
-        }
-
-        .menu-nav-link:hover .menu-nav-number {
-            opacity: 1;
-        }
-
-        .menu-footer {
-            margin-top: 4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2rem;
-        }
-
-        .menu-social {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .menu-social-link {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .menu-social-link:hover {
-            opacity: 1;
-            color: #ff3366;
-            transform: translateY(-3px);
-        }
-
-        .menu-copyright {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 1024px) {
-            .menu-container {
-                flex-direction: column;
-            }
-
-            .menu-left {
-                width: 100%;
-                height: 35vh;
-            }
-
-            .menu-right {
-                width: 100%;
-                padding: 3rem 2rem;
-            }
-
-            .menu-left-content {
-                left: 2rem;
-                bottom: 2rem;
-            }
-
-            .menu-title {
-                font-size: 3rem;
-            }
-
-            .menu-nav-text {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-title {
-                font-size: 2.5rem;
-            }
-
-            .menu-nav-text {
-                font-size: 2rem;
-            }
-
-            .menu-social {
-                gap: 1.5rem;
-            }
-        }
-        @layer library, reset, base, utilities, components, layout, override;
-@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap")
-layer(library.font);
-@import "https://unpkg.com/open-props" layer(library.design-system);
-@import "https://unpkg.com/open-props/normalize.light.min.css"
-  layer(library.normalize);
-@import "https://unpkg.com/open-props/buttons.light.min.css"
-  layer(library.buttons);
-
-@layer demo {
-  .section {
-    background-color: white;
-    display: grid;
-    min-block-size: 800px;
-    padding-block: var(--size-px-7);
-    padding-inline: var(--size-px-7);
-    place-items: center;
-  }
-
-  .container {
-    container-type: inline-size;
-    position: relative;
-    display: grid;
-    inline-size: min(100%, 1064px);
-    > * {
-      grid-area: 1/1;
-    }
-  }
-
-  .slider {
-    -ms-overflow-style: none;
-    border-radius: var(--radius-3);
-    display: grid;
-    grid-auto-flow: column;
-    inline-size: 100%;
-    overflow-x: auto;
-    position: relative;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scroll-timeline: --section-wrapper inline;
-    scrollbar-width: none;
-
-    /* Firefox */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .card {
-    background-image: linear-gradient(122deg, lavenderblush, lavender);
-    border-radius: var(--radius-3);
-    display: grid;
-    gap: var(--size-px-5);
-    inline-size: 100cqi;
-    inset-inline-start: 0;
-    padding-block: var(--size-px-10);
-    padding-inline: var(--size-px-6);
-    place-items: start;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-
-    @supports not (-moz-appearance: none) {
-      position: sticky;
-    }
-
-    @container (width >=860px) {
-      gap: var(--size-px-9);
-      grid-template-columns: 1fr 1fr;
-      padding-inline: var(--size-px-10);
-      place-items: center;
-    }
-  }
-
-  .visual {
-    aspect-ratio: var(--ratio-square);
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-6);
-    overflow: clip;
-    @container (width >=860px) {
-      max-block-size: 400px;
-    }
-  }
-
-  .img {
-    block-size: 100%;
-    inline-size: 100%;
-    object-fit: cover;
-    background-image: var(--gradient-6);
-  }
-
-  .content {
-    display: grid;
-    gap: var(--size-px-8);
-
-    @container (width >=860px) {
-      gap: var(--size-px-5);
-      place-items: center start;
-    }
-  }
-
-  .meta {
-    display: grid;
-    gap: var(--size-px-2);
-  }
-
-  .title {
-    font-family: var(--font-neo-grotesque);
-    font-size: 1.75rem;
-    font-weight: var(--font-weight-4);
-    text-wrap: balance;
-
-    @container (width >=860px) {
-      font-size: var(--font-size-5);
-    }
-  }
-
-  .desc {
-    font-family: var(--font-neo-grotesque);
-    font-size: var(--font-size-2);
-    max-inline-size: var(--size-content-2);
-    text-wrap: pretty;
-  }
-
-  .card-actions {
-    display: grid;
-    gap: var(--size-px-2);
-    place-items: start;
-
-    @container (width >=860px) {
-      gap: var(--size-px-3);
-      grid-auto-flow: column;
-    }
-  }
-
-  .common-btn {
-    --_bg: linear-gradient(aliceblue, aliceblue),
-      linear-gradient(to right, deepskyblue, royalblue);
-    --_border: transparent;
-    --_ink-shadow: none;
-    background-clip: padding-box, border-box;
-    background-origin: border-box;
-    border-radius: var(--radius-4);
-    font-family: var(--font-neo-grotesque);
-    font-size: 0.875rem;
-    font-weight: var(--font-weight-5);
-    inline-size: max-content;
-    min-block-size: 40px;
-    text-decoration: none;
-  }
-
-  .primary {
-    --_bg: linear-gradient(deepskyblue, royalblue);
-    --_border: deepskyblue;
-    --_text: white;
-    border-width: 0;
-  }
-
-  .slider-controls {
-    display: grid;
-    place-items: center;
-    padding-block: var(--size-px-9);
-  }
-
-  .slider-controls-wrapper {
-    display: grid;
-    grid-auto-flow: column;
-    inline-size: calc(100% + 2rem);
-    justify-content: space-between;
-    place-items: center;
-
-    @container (width >=860px) {
-      inline-size: 100%;
-      padding: var(--size-px-2);
-    }
-
-    /* Remove this block to show slider controls on mobile */
-    @container (width < 860px) {
-      display: none;
-    }
-  }
-
-  .control-button {
-    block-size: var(--size-px-8);
-    border-radius: var(--radius-round);
-    display: inline-grid;
-    inline-size: var(--size-px-8);
-    padding: var(--size-px-1);
-    place-items: center;
-    z-index: var(--layer-4);
-
-    & svg {
-      inline-size: 100%;
-      block-size: 100%;
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    /* 
-  The markers are highlighted based on the scroll position of the slider
-  using scroll-driven animations.
-
-  To determine the animation range for each marker, we rely on container 
-  queries to get the inline size of the nearest container, which in this case 
-  is the `slider container`.
-
-  Since we have 3 cards, each card occupies 100% of the container's inline size, 
-  which translates to 100cqi. This is why we increment the animation range for 
-  each marker by 100cqi:
-  - `.marker-1` highlights when the scroll position is within the first 100cqi 
-    of the slider's width.
-  - `.marker-2` highlights when the scroll position is between 100cqi and 
-    200cqi of the slider's width.
-  - `.marker-3` highlights when the scroll position is between 200cqi and 
-    300cqi of the slider's width.
-
-  For more examples and information on scroll-driven animations, check out 
-  https://scroll-driven-animations.style/ by @bramus.
-*/
-
-    body {
-      timeline-scope: --slider;
-    }
-
-    .pagination {
-      display: grid;
-      inset-block-end: 0;
-      inset-inline: 0;
-      padding-block: var(--size-px-7);
-      place-items: center;
-      position: absolute;
-    }
-
-    .pagination-wrapper {
-      display: grid;
-      gap: var(--size-px-3);
-      grid-auto-flow: column;
-      z-index: var(--layer-important);
-    }
-
-    .marker {
-      background-color: black;
-      block-size: 12px;
-      border-radius: var(--radius-round);
-      display: block;
-      inline-size: 12px;
-      z-index: var(--layer-important);
-    }
-
-    .slider {
-      scroll-timeline-axis: --inline;
-      scroll-timeline-name: --slider;
-    }
-
-    .marker {
-      animation-name: highlight-dot;
-      animation-timeline: --slider;
-      background-color: black;
-      opacity: 0.3;
-    }
-
-    .marker-1 {
-      animation-range-end: 100cqi;
-    }
-    .marker-2 {
-      animation-range: 100cqi 200cqi;
-    }
-    .marker-3 {
-      animation-range: 200cqi 300cqi;
-    }
-
-    @keyframes highlight-dot {
-      0%,
-      100% {
-        opacity: 0.9;
-      }
-    }
-
-    /* Handle control button visibility depend on the slider position using Scroll-Driven Animations */
-
-    .control-button {
-      animation-fill-mode: forwards;
-      animation-timeline: --slider;
-    }
-
-    .next {
-      animation-name: hideOnScrollEnd;
-    }
-    .prev {
-      animation-name: hideOnScrollStart;
-    }
-
-    @keyframes hideOnScrollStart {
-      from {
-        visibility: hidden;
-      }
-    }
-
-    @keyframes hideOnScrollEnd {
-      to {
-        visibility: hidden;
-      }
-    }
-  }
-}
-
-    </style>
 
     <script>
         document.querySelector('.menu-button').addEventListener('click', function () {
@@ -1638,132 +1025,7 @@ layer(library.font);
         type="text/javascript"></script>
 
 
-        <section class="section">
-            <div class="container">
-              <div class="slider" id="scroller">
-                <div class="card card-1">
-                  <div class="visual">
-                    <img
-                      class="img"
-                      width="400"
-                      height="400"
-                      src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/sticky-slider-cta-cards/assets/img-1.avif"
-                      alt="A 3D rendering of a futuristic hotel created by AI"
-                    />
-                  </div>
-                  <div class="content">
-                    <div class="meta">
-                      <h2 class="title">Search for anything</h2>
-                      <div class="desc">
-                        Ask any question — short or long, specific or vague. Then
-                        follow-up in chat.
-                      </div>
-                    </div>
     
-                    <div class="card-actions">
-                      <a class="btn common-btn primary" href="#">Try Open Props</a>
-                      <a class="btn common-btn" href="#">Learn tips & tricks</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card card-2">
-                  <div class="visual">
-                    <img
-                      class="img"
-                      width="400"
-                      height="400"
-                      src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/sticky-slider-cta-cards/assets/img-2.avif"
-                      alt="A 3D rendering of a futuristic hotel created by AI"
-                    />
-                  </div>
-                  <div class="content">
-                    <div class="meta">
-                      <h2 class="title">Expand your world</h2>
-                      <div class="desc">
-                        Visualize your ideas. Generate custom images with ease.
-                      </div>
-                    </div>
-    
-                    <div class="card-actions">
-                      <a class="btn common-btn primary" href="#">Try Open Props</a>
-                      <a class="btn common-btn" href="#">Learn tips & tricks</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card card-3">
-                  <div class="visual">
-                    <img
-                      class="img"
-                      width="400"
-                      height="400"
-                      src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/sticky-slider-cta-cards/assets/img-3.avif"
-                      alt="A 3D rendering of a futuristic hotel created by AI"
-                    />
-                  </div>
-                  <div class="content">
-                    <div class="meta">
-                      <h2 class="title">Keep exploring</h2>
-                      <div class="desc">
-                        Perfect your vision. Fine-tune images to match your style.
-                      </div>
-                    </div>
-    
-                    <div class="card-actions">
-                      <a class="btn common-btn primary" href="#">Try Open Props</a>
-                      <a class="btn common-btn" href="#">Learn tips & tricks</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="slider-controls">
-                <div class="slider-controls-wrapper">
-                  <button
-                    class="control-button prev"
-                    aria-label="Go to previous"
-                    onclick="scroller.scrollBy(-100, 0)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="40px"
-                      viewBox="0 -960 960 960"
-                      width="40px"
-                      fill="#5f6368"
-                    >
-                      <path
-                        d="m414.67-480.67 170 170q9.66 9.67 9.33 23.34-.33 13.66-10 23.33-9.67 9.67-23.67 9.67-14 0-23.66-9.67L343.33-457.33q-5.33-5.34-7.5-11-2.16-5.67-2.16-12.34 0-6.66 2.16-12.33 2.17-5.67 7.5-11l194-194q9.67-9.67 23.67-9.67 14 0 23.67 9.67 9.66 9.67 9.66 23.67 0 14-9.66 23.66l-170 170Z"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="control-button next"
-                    aria-label="Go to next"
-                    onclick="scroller.scrollBy(100, 0)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="40px"
-                      viewBox="0 -960 960 960"
-                      width="40px"
-                      fill="#5f6368"
-                    >
-                      <path
-                        d="m521.33-480.67-170-170q-9.66-9.66-9.33-23.33.33-13.67 10-23.33 9.67-9.67 23.67-9.67 14 0 23.66 9.67L592.67-504q5.33 5.33 7.5 11 2.16 5.67 2.16 12.33 0 6.67-2.16 12.34-2.17 5.66-7.5 11l-194 194q-9.67 9.66-23.34 9.33-13.66-.33-23.33-10-9.67-9.67-9.67-23.67 0-14 9.67-23.66l169.33-169.34Z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-    
-              <div class="pagination">
-                <div class="pagination-wrapper">
-                  <span class="marker marker-1"></span>
-                  <span class="marker marker-2"></span>
-                  <span class="marker marker-3"></span>
-                </div>
-              </div>
-            </div>
-          </section>
     
 
 
