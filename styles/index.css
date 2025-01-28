@@ -2410,7 +2410,14 @@ button:hover~.custom-cursor,
     }
   }
   .section{
-    margin-top: 40px;
+    padding-top: 40px;
+    background-color: #efeeec;
+  }
+  .max-width-30vw{
+    color: #000000;
+  }
+  .subheading{
+    color: #000000;
   }
   h2{
     color: skyblue;
