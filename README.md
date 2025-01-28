@@ -6,6 +6,11 @@ Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the 
 
 ---
 
+<video controls width="100%">
+  <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4" type="video/mp4">
+  Your browser does not support the video tag. 
+</video>
+
 ## 🚀 About the Project
 
 Udgam 2025 is an annual sports fest that brings together athletes and sports enthusiasts from across the region. The event features a wide variety of sports, engaging competitions, and a platform for participants to showcase their talents.
