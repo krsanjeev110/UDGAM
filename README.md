@@ -92,9 +92,9 @@ We welcome contributions to improve this project! Please feel free to submit iss
 
 For any queries or suggestions, please reach out to us:
 
-- **Email**: contact@udgam2025.com
+- **Email**: adarsh_kishor@srmap.edu.in sports_council@srmap.edu.in
 - **Instagram**: [@udgam_sportsfest](https://instagram.com/udgam_sportsfest)
-- **Phone**: +91-1234567890
+- **Phone**: +91-7033903639
 
 ---
 
