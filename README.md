@@ -1,11 +1,13 @@
-Here's a sample `README.md` for the **Udgam 2025 Sports Fest** project:  
-
-```markdown
 # Udgam 2025 - Sports Fest
 
 Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the source code for the official website of Udgam 2025, built using simple HTML, CSS, and JavaScript (KS). The website serves as an information portal for the sports fest, showcasing event details, schedules, registration, and more.
 
 ---
+
+<video controls width="100%">
+  <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4" type="video/mp4">
+  Your browser does not support the video tag. 
+</video>
 
 ## 🚀 About the Project
 
@@ -83,6 +85,14 @@ This project aims to provide an elegant, user-friendly, and responsive web inter
 
 ---
 
+## 🎥 Video
+
+Check out the promotional video for Udgam 2025:
+
+[![Udgam 2025 Video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://kapkap-common.stariidata.com)
+
+---
+
 ## 📬 Contributing
 
 We welcome contributions to improve this project! Please feel free to submit issues or pull requests.
@@ -106,6 +116,6 @@ Special thanks to all the organizers, sponsors, and participants of Udgam 2025.
 ---
 
 ### 🏆 Let's make Udgam 2025 the most exciting sports fest yet!
-```
+````
 
 Feel free to replace placeholders like `your-username` and contact details with real information! Let me know if you'd like help customizing this further.
