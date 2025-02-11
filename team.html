@@ -938,6 +938,510 @@
                 font-size: 12px;
             }
         }
+
+        /* Updated Team Section Styles */
+        .team-page {
+            background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+            padding: 40px 0;
+        }
+
+        .team-header {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(0, 191, 255, 0.05);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .team-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00bfff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .team-header p {
+            color: #aaa;
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .committees-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .committee-section {
+            margin-bottom: 100px;
+            position: relative;
+            padding: 40px;
+            background: rgba(0, 191, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .committee-section:hover {
+            background: rgba(0, 191, 255, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .committee-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 191, 255, 0.2);
+            color: #fff;
+            text-align: left;
+            position: relative;
+        }
+
+        .committee-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: #00bfff;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .member-card {
+            background: rgba(0, 191, 255, 0.03);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 191, 255, 0.1), transparent);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 191, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .member-card:hover::before {
+            opacity: 1;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid rgba(0, 191, 255, 0.3);
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.1);
+            border-color: #00bfff;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .member-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-info h3 {
+            color: #00bfff;
+        }
+
+        .member-info .role {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-info .description {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 191, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bfff;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .member-social a:hover {
+            background: #00bfff;
+            color: #fff;
+            transform: translateY(-5px);
+        }
+
+        @media screen and (max-width: 1200px) {
+            .committees-container {
+                padding: 0 40px;
+            }
+            
+            .committee-section {
+                padding: 30px;
+            }
+            
+            .team-members {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .team-header {
+                padding: 60px 0;
+            }
+            
+            .team-header h2 {
+                font-size: 36px;
+            }
+            
+            .team-header p {
+                font-size: 16px;
+            }
+            
+            .committee-section {
+                padding: 20px;
+                margin-bottom: 60px;
+            }
+            
+            .committee-section h2 {
+                font-size: 28px;
+            }
+            
+            .member-card {
+                padding: 20px;
+            }
+            
+            .member-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .member-info h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .committees-container {
+                padding: 0 20px;
+            }
+            
+            .team-header h2 {
+                font-size: 28px;
+            }
+            
+            .committee-section h2 {
+                font-size: 24px;
+            }
+            
+            .member-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Additional Design Enhancements */
+
+        /* Animated Background Pattern */
+        .team-page::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to right, transparent 49%, rgba(0, 191, 255, 0.03) 50%, transparent 51%) 0 0 / 5px 100%,
+                radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 50%) 0 0 / 50px 50px;
+            pointer-events: none;
+            animation: patternMove 20s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* Enhanced Committee Section */
+        .committee-section {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.03) 0%, rgba(0, 0, 0, 0.2) 100%);
+        }
+
+        .committee-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.3), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Glowing Corner Effect */
+        .committee-section::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.5), transparent);
+            border-radius: 20px 0 50px 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .committee-section:hover::after {
+            opacity: 1;
+        }
+
+        /* Enhanced Member Cards */
+        .member-card {
+            backdrop-filter: blur(5px);
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .member-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 15px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.3), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Enhanced Member Image */
+        .member-image::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 191, 255, 0.5), transparent);
+            animation: rotateGradient 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-card:hover .member-image::before {
+            opacity: 1;
+        }
+
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced Role Badge */
+        .member-info .role {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), transparent);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .role {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.2), transparent);
+            border-color: rgba(0, 191, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Social Links */
+        .member-social {
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .member-social::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.3), transparent);
+        }
+
+        .member-social a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-social a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-social a:hover::before {
+            opacity: 1;
+        }
+
+        /* Enhanced Section Headers */
+        .committee-section h2 {
+            position: relative;
+            display: inline-block;
+            padding-right: 50px;
+        }
+
+        .committee-section h2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #00bfff, transparent);
+            transform: translateY(-50%);
+        }
+
+        /* Floating Animation for Cards */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        .member-card {
+            animation: float 3s ease-in-out infinite;
+            animation-play-state: paused;
+        }
+
+        .member-card:hover {
+            animation-play-state: running;
+        }
+
+        /* Enhanced Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .committee-section {
+                background: linear-gradient(135deg, rgba(0, 191, 255, 0.02) 0%, rgba(0, 0, 0, 0.1) 100%);
+            }
+
+            .member-card {
+                backdrop-filter: none;
+            }
+
+            .member-social a {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>

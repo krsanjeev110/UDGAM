@@ -509,3 +509,186 @@ document.addEventListener("DOMContentLoaded", () =>{
   initFlipButtons()
 })
 
+// Parallax Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const parallaxSection = document.querySelector('.flex-image-wrapper');
+    const images = parallaxSection.querySelectorAll('img');
+    const leftFlex = document.querySelector('.left-flex');
+    const rightFlex = document.querySelector('.right-flex');
+    const mainImage = document.querySelector('.main-image');
+
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const sectionOffset = parallaxSection.offsetTop;
+        const windowHeight = window.innerHeight;
+        
+        // Check if section is in viewport
+        if (scrollTop + windowHeight > sectionOffset && scrollTop < sectionOffset + parallaxSection.offsetHeight) {
+            const scrollProgress = (scrollTop + windowHeight - sectionOffset) / (windowHeight + parallaxSection.offsetHeight);
+            
+            // Parallax effect for images
+            images.forEach((img, index) => {
+                const speed = 0.15 * (index + 1);
+                const yOffset = scrollProgress * speed * 100;
+                img.style.transform = `translateY(${yOffset}px)`;
+            });
+            
+            // 3D effect for side sections
+            const rotateAmount = (scrollProgress - 0.5) * 10;
+            leftFlex.style.transform = `rotateY(${rotateAmount}deg)`;
+            rightFlex.style.transform = `rotateY(${-rotateAmount}deg)`;
+            
+            // Scale effect for main image
+            const scale = 1 + (scrollProgress * 0.1);
+            mainImage.style.transform = `scale(${scale})`;
+        }
+        
+        lastScrollTop = scrollTop;
+    }, { passive: true });
+});
+
+// Expanded Navigation Menu
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.querySelector('.menu-button');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        menuButton.classList.toggle('active');
+        navMenu.classList.toggle('expanded');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    }
+
+    menuButton.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+            toggleMenu();
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 991 && isMenuOpen) {
+            toggleMenu();
+        }
+    });
+
+    // Add hover effect for menu items
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            if (isMenuOpen) {
+                navLinks.forEach(otherLink => {
+                    if (otherLink !== link) {
+                        otherLink.style.opacity = '0.3';
+                    }
+                });
+            }
+        });
+
+        link.addEventListener('mouseleave', () => {
+            if (isMenuOpen) {
+                navLinks.forEach(otherLink => {
+                    otherLink.style.opacity = '1';
+                });
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menu = document.querySelector('.expandable-menu');
+    const toggleButton = document.querySelector('.menu-toggle-button');
+
+    toggleButton.addEventListener('click', function() {
+        menu.classList.toggle('open');
+    });
+});
+
+
+
+/* Please ❤ this if you like it! */
+
+
+(function($) { "use strict";
+		
+	//Page cursors
+
+    document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
+        t.style.left = n.clientX + "px", 
+		t.style.top = n.clientY + "px", 
+		e.style.left = n.clientX + "px", 
+		e.style.top = n.clientY + "px", 
+		i.style.left = n.clientX + "px", 
+		i.style.top = n.clientY + "px"
+    });
+    var t = document.getElementById("cursor"),
+        e = document.getElementById("cursor2"),
+        i = document.getElementById("cursor3");
+    function n(t) {
+        e.classList.add("hover"), i.classList.add("hover")
+    }
+    function s(t) {
+        e.classList.remove("hover"), i.classList.remove("hover")
+    }
+    s();
+    for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 0; a--) {
+        o(r[a])
+    }
+    function o(t) {
+        t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
+    }
+	
+	//Navigation
+
+	var app = function () {
+		var body = undefined;
+		var menu = undefined;
+		var menuItems = undefined;
+		var init = function init() {
+			body = document.querySelector('body');
+			menu = document.querySelector('.menu-icon');
+			menuItems = document.querySelectorAll('.nav__list-item');
+			applyListeners();
+		};
+		var applyListeners = function applyListeners() {
+			menu.addEventListener('click', function () {
+				return toggleClass(body, 'nav-active');
+			});
+		};
+		var toggleClass = function toggleClass(element, stringClass) {
+			if (element.classList.contains(stringClass)) element.classList.remove(stringClass);else element.classList.add(stringClass);
+		};
+		init();
+	}();
+
+	
+	//Switch light/dark
+	
+	$("#switch").on('click', function () {
+		if ($("body").hasClass("light")) {
+			$("body").removeClass("light");
+			$("#switch").removeClass("switched");
+		}
+		else {
+			$("body").addClass("light");
+			$("#switch").addClass("switched");
+		}
+	});
+	
+})(jQuery); 
