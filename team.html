@@ -809,133 +809,178 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
         }
 
         .team-member {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+            background: rgba(0, 191, 255, 0.05);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            max-width: 250px;
-            margin: 0 auto;
         }
 
-        .team-member-image {
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.1);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover::before {
+            opacity: 1;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid rgba(0, 191, 255, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .team-member-info {
-            padding: 1rem;
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
         }
 
-        .team-member-name {
-            font-size: 1.2rem;
+        .member-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 0.3rem;
+            margin-bottom: 5px;
+            color: #fff;
         }
 
-        .team-member-role {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.8rem;
+        .member-role {
+            color: #00bfff;
+            font-size: 16px;
+            margin-bottom: 15px;
         }
 
-        .team-member-social {
+        .member-social {
             display: flex;
-            gap: 0.8rem;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .social-link {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
+        .member-social a {
+            color: #aaa;
             transition: color 0.3s ease;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
+        .member-social a:hover {
+            color: #00bfff;
+        }
+
+        /* Complete menu toggle styles */
+        .menu-toggle {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 15px;
+            background: rgba(0, 191, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(0, 191, 255, 0.2);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        /* Additional Responsive Styles */
+        @media screen and (max-width: 1024px) {
+            .navbar-container {
+                padding: 0 40px;
             }
 
-            .team-member {
-                max-width: 200px;
-            }
-
-            .team-member-image {
-                height: 200px;
-            }
-
-            .team-member-name {
-                font-size: 1.1rem;
-            }
-
-            .team-member-role {
-                font-size: 0.8rem;
-            }
-
-            .member-card {
-                max-height: 350px;
-                padding: 15px;
-            }
-
-            .executive-image-wrap {
-                padding-top: 70%;
-            }
-
-            .member-info h3 {
-                font-size: 18px;
-            }
-
-            .member-info .description {
-                -webkit-line-clamp: 2;
+            .hero-title {
+                font-size: 48px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media screen and (max-width: 767px) {
+            .navbar-container {
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
             .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .team-member {
-                max-width: 150px;
-            }
-
-            .team-member-image {
-                height: 150px;
-            }
-
-            .team-member-name {
-                font-size: 1rem;
-            }
-
-            .member-card {
-                max-height: 300px;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
                 padding: 10px;
             }
 
-            .executive-image-wrap {
-                padding-top: 65%;
+            .member-image {
+                width: 120px;
+                height: 120px;
             }
 
-            .member-info h3 {
-                font-size: 16px;
+            .member-name {
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
             }
 
-            .member-info .description {
-                font-size: 12px;
-                -webkit-line-clamp: 2;
-            }
-
-            .social-link {
-                width: 25px;
-                height: 25px;
-                font-size: 12px;
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
 
