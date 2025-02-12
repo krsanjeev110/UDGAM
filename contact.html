@@ -20,7 +20,6 @@
 
 body {
   background: #000;
-  overflow: hidden;
   font-family: 'Anton', sans-serif;
 }
 
@@ -36,7 +35,6 @@ body {
   border-radius: 100%;
   cursor: pointer;
   color: white;
-
 }
 
 .hamburger {
@@ -169,17 +167,37 @@ body {
   font-size: 12px;
   font-family: Arial, sans-serif;
 }
+
+/* Logo styles */
+.brand {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 150px;
+    height: 70px;
+    object-fit: contain;
+}
     </style>
 </head>
 <body>
+    <!-- Add logo -->
+    <a href="index.html" class="brand">
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" loading="lazy" alt="" class="nav-logo"/>
+    </a>
+
     <div class="nav-btn">
-        <!-- Hamburger Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
+    </div>
     
       <nav class="menu">
         <!-- Logo in the top-left corner -->

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udgam Sports</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00c3ff;
+            --secondary: #00ffee;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+            --accent: #ff3366;
+        }
+
+        body {
+            background: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            z-index: 1000;
+            transition: 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            mix-blend-mode: normal;
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), rgba(0, 255, 238, 0.1));
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 238, 0.15) 0%, transparent 50%);
+            animation: gradientMove 20s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(-10px, 10px);
+            }
+            50% {
+                transform: translate(10px, -10px);
+            }
+            75% {
+                transform: translate(-10px, -10px);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.5s;
+            padding: 2rem;
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .hero-title::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 45%, var(--primary) 50%, transparent 55%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 3s infinite;
+            background-size: 200%;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: -100%;
+            }
+            100% {
+                background-position: 200%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .category-item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .category-btn {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .category-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .category-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            animation: slideIn 0.3s ease;
+        }
+
+        /* Sports Grid */
+        .sports-container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .sport-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .sport-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(0, 255, 136, 0.1),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .sport-card:hover::before {
+            opacity: 1;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 255, 136, 0.1),
+                0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .sport-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s ease;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .sport-card:hover .sport-image {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        .sport-content {
+            padding: 2rem;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.4)
+            );
+            position: relative;
+        }
+
+        .sport-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .sport-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .sport-desc {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .sport-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sport-prize {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .register-btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 25%,
+                rgba(255, 255, 255, 0.4) 45%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 75%,
+                transparent 100%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .register-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .register-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 
+                0 10px 20px rgba(0, 255, 136, 0.3),
+                0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Background Effects */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.3;
+            transform-origin: center;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(30px) rotate(1deg);
+            }
+        }
+
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 238, 0.1), transparent 40%);
+            z-index: -1;
+            animation: gradientPulse 10s ease infinite;
+            filter: blur(50px);
+        }
+
+        @keyframes gradientPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .category-list {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .sports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+
+.nav-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100000;
+  display: flex;
+  gap: 10px;
+  background-color: #87CEEB;
+  padding: 20px;
+  border-radius: 100%;
+  cursor: pointer;
+  color: white;
+
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  transform-origin: top right;
+  /* Expand from the top-right corner */
+  transform: scale(0);
+  /* Start with the menu scaled down */
+  opacity: 0;
+  /* Start with the menu invisible */
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu.active {
+  transform: scale(1);
+  /* Expand the menu to full size */
+  opacity: 1;
+  /* Make the menu visible */
+}
+
+.menu.closing {
+  transform: scale(0);
+  /* Shrink the menu back */
+  opacity: 0;
+  /* Fade out the menu */
+}
+
+.menu-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  /* Adjust logo size as needed */
+  height: auto;
+}
+
+.menu-image {
+  width: 60%;
+  height: 80%;
+  background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
+  /* Sample image URL */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.menu-items {
+  width: 50%;
+  text-align: right;
+}
+
+.menu-items a {
+  color: white;
+  text-decoration: none;
+  font-size: 48px;
+  /* Decreased font size */
+  line-height: 1.2;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  transition: color 0.3s ease;
+  margin: 10px 0;
+  /* Added spacing between menu items */
+}
+
+.menu-items a:hover {
+  color: #2ce6ff;
+}
+
+.menu-items a.home {
+  color: #00e5ff;
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 40px;
+  right: 5%;
+  color: white;
+  font-size: 24px;
+  /* Decreased font size */
+  letter-spacing: 1px;
+}
+
+.photo-credit {
+  position: absolute;
+  bottom: 15px;
+  right: 5%;
+  color: #666;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+/* Logo styles */
+.brandd {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 10px;
+  display: flex;
+  align-items: center;
+}
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <!-- Add logo -->
+    <a href="index.html" class="brandd" style="width: 10px;">
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
+    </a>
+
+    <div class="nav-btn">
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    
+      <nav class="menu">
+        <!-- Logo in the top-left corner -->
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
+    
+        <div class="menu-image"></div>
+        <div class="menu-items">
+          <a href="home.html" class="home">HOME</a>
+          <a href="about.html" class="about">ABOUT</a>
+          <a href="team.html">Teams</a>
+          <a href="events.html">EXTERNAL EVENTS</a>
+          <a href="events.html">INTERNAL EVENTS</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-text">RHYTHM OF REALM</div>
+        <div class="photo-credit">Photo Credits - The Photography Club VIT</div>
+      </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-text="UDGAM SPORTS">UDGAM SPORTS</h1>
+            <p class="hero-subtitle">Experience the thrill of competition in our premier sporting events</p>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <ul class="category-list">
+            <li class="category-item">
+                <button class="category-btn active" data-category="indoor">Indoor Sports</button>
+            </li>
+            <li class="category-item">
+                <button class="category-btn" data-category="outdoor">Outdoor Sports</button>
+            </li>
+            <li class="category-item">
+                <button class="category-btn" data-category="esports">E-Sports</button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sports Grid -->
+    <div class="sports-container">
+        <div class="sports-grid" id="indoor">
+            <!-- Chess -->
+            <div class="sport-card">
+                <img src="https://source.unsplash.com/800x600/?chess" alt="Chess" class="sport-image">
+                <div class="sport-content">
+                    <span class="sport-tag">Strategy</span>
+                    <h3 class="sport-title">Chess Championship</h3>
+                    <p class="sport-desc">Test your strategic prowess in our premier chess tournament.</p>
+                    <div class="sport-meta">
+                        <div class="sport-prize">₹5,000</div>
+                        <button class="register-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Tennis -->
+            <div class="sport-card">
+                <img src="https://source.unsplash.com/800x600/?table-tennis" alt="Table Tennis" class="sport-image">
+                <div class="sport-content">
+                    <span class="sport-tag">Singles/Doubles</span>
+                    <h3 class="sport-title">Table Tennis</h3>
+                    <p class="sport-desc">Compete in singles or doubles table tennis matches.</p>
+                    <div class="sport-meta">
+                        <div class="sport-prize">₹3,000</div>
+                        <button class="register-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrom -->
+            <div class="sport-card">
+                <img src="https://source.unsplash.com/800x600/?board-game" alt="Carrom" class="sport-image">
+                <div class="sport-content">
+                    <span class="sport-tag">Precision</span>
+                    <h3 class="sport-title">Carrom</h3>
+                    <p class="sport-desc">Show your precision in this classic board game tournament.</p>
+                    <div class="sport-meta">
+                        <div class="sport-prize">₹2,000</div>
+                        <button class="register-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Category switching
+        const categories = {
+            indoor: [
+                {
+                    image: 'chess',
+                    tag: 'Strategy',
+                    title: 'Chess Championship',
+                    desc: 'Test your strategic prowess in our premier chess tournament.',
+                    prize: '5,000'
+                },
+                {
+                    image: 'table-tennis',
+                    tag: 'Singles/Doubles',
+                    title: 'Table Tennis',
+                    desc: 'Compete in singles or doubles table tennis matches.',
+                    prize: '3,000'
+                },
+                {
+                    image: 'board-game',
+                    tag: 'Precision',
+                    title: 'Carrom',
+                    desc: 'Show your precision in this classic board game tournament.',
+                    prize: '2,000'
+                }
+            ],
+            outdoor: [
+                {
+                    image: 'cricket',
+                    tag: 'Team',
+                    title: 'Cricket Tournament',
+                    desc: 'Participate in our exciting T20 format cricket tournament.',
+                    prize: '15,000'
+                },
+                {
+                    image: 'football',
+                    tag: 'Team',
+                    title: 'Football',
+                    desc: '5-a-side football tournament with knockout rounds.',
+                    prize: '10,000'
+                },
+                {
+                    image: 'basketball',
+                    tag: 'Team',
+                    title: 'Basketball',
+                    desc: '3v3 basketball tournament with exciting matches.',
+                    prize: '8,000'
+                }
+            ],
+            esports: [
+                {
+                    image: 'gaming',
+                    tag: 'Team',
+                    title: 'Valorant',
+                    desc: '5v5 tactical shooter tournament with multiple rounds.',
+                    prize: '10,000'
+                },
+                {
+                    image: 'fifa',
+                    tag: 'Individual',
+                    title: 'FIFA 24',
+                    desc: '1v1 football gaming competition with knockout format.',
+                    prize: '5,000'
+                },
+                {
+                    image: 'battle-royale',
+                    tag: 'Team',
+                    title: 'BGMI',
+                    desc: 'Squad battle royale tournament with multiple matches.',
+                    prize: '8,000'
+                }
+            ]
+        };
+
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const sportsGrid = document.querySelector('.sports-grid');
+
+        function createSportCard(sport) {
+            return `
+                <div class="sport-card">
+                    <img src="https://source.unsplash.com/800x600/?${sport.image}" alt="${sport.title}" class="sport-image">
+                    <div class="sport-content">
+                        <span class="sport-tag">${sport.tag}</span>
+                        <h3 class="sport-title">${sport.title}</h3>
+                        <p class="sport-desc">${sport.desc}</p>
+                        <div class="sport-meta">
+                            <div class="sport-prize">₹${sport.prize}</div>
+                            <button class="register-btn">Register</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update content
+                const category = btn.dataset.category;
+                sportsGrid.style.opacity = '0';
+                sportsGrid.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    sportsGrid.innerHTML = categories[category].map(createSportCard).join('');
+                    sportsGrid.style.opacity = '1';
+                    sportsGrid.style.transform = 'translateY(0)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+<script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      const hamburger = document.querySelector('.hamburger');
+      if (menu.classList.contains('active')) {
+        // Add closing animation
+        menu.classList.add('closing');
+        hamburger.classList.remove('active');
+        setTimeout(() => {
+          menu.classList.remove('active', 'closing');
+        }, 500); // Match the duration of the closing animation
+      } else {
+        // Open the menu with expanding animation
+        menu.classList.add('active');
+        hamburger.classList.add('active');
+      }
+    }
+</script>
+</html> 

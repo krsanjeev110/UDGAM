@@ -77,6 +77,168 @@
         }, 1000);
     </script>
     <link href="styles/events-section.css" rel="stylesheet" type="text/css">
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+  font-family: 'Anton', sans-serif;
+}
+
+.nav-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100000;
+  display: flex;
+  gap: 10px;
+  background-color: #87CEEB;
+  padding: 20px;
+  border-radius: 100%;
+  cursor: pointer;
+  color: white;
+
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  transform-origin: top right;
+  /* Expand from the top-right corner */
+  transform: scale(0);
+  /* Start with the menu scaled down */
+  opacity: 0;
+  /* Start with the menu invisible */
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu.active {
+  transform: scale(1);
+  /* Expand the menu to full size */
+  opacity: 1;
+  /* Make the menu visible */
+}
+
+.menu.closing {
+  transform: scale(0);
+  /* Shrink the menu back */
+  opacity: 0;
+  /* Fade out the menu */
+}
+
+.menu-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  /* Adjust logo size as needed */
+  height: auto;
+}
+
+.menu-image {
+  width: 60%;
+  height: 80%;
+  background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
+  /* Sample image URL */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.menu-items {
+  width: 50%;
+  text-align: right;
+}
+
+.menu-items a {
+  color: white;
+  text-decoration: none;
+  font-size: 48px;
+  /* Decreased font size */
+  line-height: 1.2;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  transition: color 0.3s ease;
+  margin: 10px 0;
+  /* Added spacing between menu items */
+}
+
+.menu-items a:hover {
+  color: #2ce6ff;
+}
+
+.menu-items a.home {
+  color: #00e5ff;
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 40px;
+  right: 5%;
+  color: white;
+  font-size: 24px;
+  /* Decreased font size */
+  letter-spacing: 1px;
+}
+
+.photo-credit {
+  position: absolute;
+  bottom: 15px;
+  right: 5%;
+  color: #666;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+    </style>
 </head>
 
 <body>

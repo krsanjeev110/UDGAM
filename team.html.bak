@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDGAM'25 Team</title>
+    <link href="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80') center/cover;
+            filter: brightness(0.3) contrast(1.2);
+            animation: heroBackgroundScale 20s ease-in-out infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 191, 255, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.3) 0%, transparent 25%),
+                linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00bfff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 20px);
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Team Grid Layout */
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .team-section {
+            margin-bottom: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00bfff, transparent);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 191, 255, 0.1);
+        }
+
+        .member-image {
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(180deg, rgba(0, 191, 255, 0.05) 0%, rgba(0, 191, 255, 0) 100%);
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .member-role {
+            font-size: 14px;
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(0, 191, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bfff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #00bfff;
+            color: #0a0a0a;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Meet Our Team</h1>
+            <p class="hero-subtitle">The passionate individuals behind UDGAM'25 working together to create an unforgettable experience.</p>
+        </div>
+    </section>
+
+    <!-- Team Container -->
+    <div class="team-container">
+        <!-- Core Team Section -->
+        <section class="team-section">
+            <div class="section-header">
+                <h2 class="section-title">Core Team</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team members will be added here -->
+            </div>
+        </section>
+
+        <!-- Technical Team Section -->
+        <section class="team-section">
+            <div class="section-header">
+                <h2 class="section-title">Technical Team</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team members will be added here -->
+            </div>
+        </section>
+
+        <!-- Design Team Section -->
+        <section class="team-section">
+            <div class="section-header">
+                <h2 class="section-title">Design Team</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team members will be added here -->
+            </div>
+        </section>
+
+        <!-- Marketing Team Section -->
+        <section class="team-section">
+            <div class="section-header">
+                <h2 class="section-title">Marketing Team</h2>
+            </div>
+            <div class="team-grid">
+                <!-- Team members will be added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Team Member Template -->
+    <template id="team-member-template">
+        <div class="team-member">
+            <div class="member-image">
+                <img src="path_to_image.jpg" alt="Team Member">
+            </div>
+            <div class="member-info">
+                <h3 class="member-name">Member Name</h3>
+                <p class="member-role">Role</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // Add your JavaScript for dynamic content loading here
+    </script>
+</body>
+</html> 

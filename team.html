@@ -81,7 +81,6 @@
         }
 
         .committees-container .committee-section {
-            padding: 60px 0;
             border-bottom: 1px solid rgba(0, 191, 255, 0.1);
         }
 
@@ -1488,206 +1487,254 @@
             }
         }
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+        /* Website Committee Specific Styles */
+        .website-committee {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+            margin: 80px 0;
+            border-radius: 30px;
+            overflow: hidden;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        .website-committee .committee-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
 
-body {
-  background: #000;
-  overflow: hidden;
-  font-family: 'Anton', sans-serif;
-}
+        .website-committee .committee-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
 
-.nav-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100000;
-  display: flex;
-  gap: 10px;
-  background-color: #87CEEB;
-  padding: 20px;
-  border-radius: 100%;
-  cursor: pointer;
-  color: white;
+        .website-committee:hover .committee-tag {
+            background: rgba(0, 191, 255, 0.2);
+            transform: translateY(-5px);
+        }
 
-}
+        .website-team {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 20px;
+        }
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-  z-index: 10001;
-}
+        .website-team .member-card {
+            background: rgba(0, 191, 255, 0.05);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hamburger span {
-  width: 100%;
-  height: 3px;
-  background: #ffffff;
-  transition: all 0.3s ease;
-}
+        .website-team .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), transparent);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+        .website-team .member-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(0, 191, 255, 0.08);
+            border-color: rgba(0, 191, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
+        .website-team .member-card:hover::before {
+            opacity: 1;
+        }
 
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+        .website-team .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 3px solid rgba(0, 191, 255, 0.3);
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
 
-.menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #000;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  transform-origin: top right;
-  /* Expand from the top-right corner */
-  transform: scale(0);
-  /* Start with the menu scaled down */
-  opacity: 0;
-  /* Start with the menu invisible */
-  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
-  z-index: 1000;
-}
+        .website-team .member-card:hover .member-image {
+            transform: scale(1.1);
+            border-color: #00bfff;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+        }
 
-.menu.active {
-  transform: scale(1);
-  /* Expand the menu to full size */
-  opacity: 1;
-  /* Make the menu visible */
-}
+        .website-team .member-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
 
-.menu.closing {
-  transform: scale(0);
-  /* Shrink the menu back */
-  opacity: 0;
-  /* Fade out the menu */
-}
+        .website-team .member-card:hover .member-img {
+            transform: scale(1.1) rotate(5deg);
+        }
 
-.menu-logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 100px;
-  /* Adjust logo size as needed */
-  height: auto;
-}
+        .website-team .member-info {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
 
-.menu-image {
-  width: 60%;
-  height: 80%;
-  background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
-  /* Sample image URL */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-}
+        .website-team .member-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
 
-.menu-items {
-  width: 50%;
-  text-align: right;
-}
+        .website-team .member-card:hover .member-info h3 {
+            color: #00bfff;
+            transform: translateY(-5px);
+        }
 
-.menu-items a {
-  color: white;
-  text-decoration: none;
-  font-size: 48px;
-  /* Decreased font size */
-  line-height: 1.2;
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 900;
-  transition: color 0.3s ease;
-  margin: 10px 0;
-  /* Added spacing between menu items */
-}
+        .website-team .role {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            color: #00bfff;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
 
-.menu-items a:hover {
-  color: #2ce6ff;
-}
+        .website-team .member-card:hover .role {
+            background: rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
 
-.menu-items a.home {
-  color: #00e5ff;
-}
+        .website-team .description {
+            color: #aaa;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
 
-.footer-text {
-  position: absolute;
-  bottom: 40px;
-  right: 5%;
-  color: white;
-  font-size: 24px;
-  /* Decreased font size */
-  letter-spacing: 1px;
-}
+        .website-team .member-card:hover .description {
+            color: #fff;
+        }
 
-.photo-credit {
-  position: absolute;
-  bottom: 15px;
-  right: 5%;
-  color: #666;
-  font-size: 12px;
-  font-family: Arial, sans-serif;
-}
+        .website-team .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .website-team .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(0, 191, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bfff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .website-team .social-link:hover {
+            background: #00bfff;
+            color: #fff;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+        }
+
+        @media screen and (max-width: 991px) {
+            .website-team {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .website-committee {
+                margin: 40px 0;
+                border-radius: 20px;
+            }
+
+            .website-team .member-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .website-team .member-info h3 {
+                font-size: 20px;
+            }
+        }
+
+        /* Logo styles */
+        .brand {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo {
+            width: 150px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100000;
+            display: flex;
+            gap: 10px;
+            background-color: #87CEEB;
+            padding: 20px;
+            border-radius: 100%;
+            cursor: pointer;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <!-- Updated Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="/" class="nav-logo-link">
-                <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="nav-logo">
-            </a>
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
-    </nav>
+    <!-- Add logo -->
+    <a href="index.html" class="brand">
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" loading="lazy" alt="" class="nav-logo"/>
+    </a>
+
     <div class="nav-btn">
-        <!-- Hamburger Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
-    
-      <nav class="menu">
-        <!-- Logo in the top-left corner -->
-        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
-    
-        <div class="menu-image"></div>
-        <div class="menu-items">
-          <a href="home.html" class="home">HOME</a>
-          <a href="about.html" class="about">ABOUT</a>
-          <a href="team.html">Teams</a>
-          <a href="events.html">EXTERNAL EVENTS</a>
-          <a href="events.html">INTERNAL EVENTS</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-text">RHYTHM OF REALM</div>
-        <div class="photo-credit">Photo Credits - The Photography Club VIT</div>
-      </nav>
+    </div>
 
     <!-- Updated Fullscreen Menu -->
     <div class="fullscreen-menu">
@@ -1978,46 +2025,58 @@ body {
     </section>
 
     <!-- Website Committee Section -->
-    <section class="committee-section">
+    <section class="committee-section website-committee">
         <div class="section-bg"></div>
         <div class="container">
             <div class="committee-header">
                 <div class="committee-tag">Website Committee</div>
                 <h2 class="committee-title">Digital Innovation Team</h2>
-                <p class="committee-description">Meet the creative minds behind UDGAM's digital presence, crafting seamless online experiences.</p>
+                <p class="committee-description">Meet the creative minds behind UDGAM's digital presence, crafting seamless online experiences and innovative web solutions.</p>
             </div>
 
-            <div class="team-members">
+            <div class="team-members website-team">
                 <!-- Head -->
                 <div class="member-card">
-                    <div class="executive-image-wrap">
-                        <img src="/img/team/37.webp" alt="Pushpak Srinivas" class="executive-image">
+                    <div class="member-image">
+                        <img src="/img/team/37.webp" alt="Pushpak Srinivas" class="member-img">
                     </div>
                     <div class="member-info">
                         <h3>Pushpak Srinivas</h3>
-                        <p class="role">Website Committee Head</p>
+                        <div class="role">Website Committee Head</div>
                         <p class="description">Leading the digital transformation of UDGAM with innovative web solutions and strategic vision.</p>
                         <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/in/pushpak-srinivas" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/pushpak-srinivas" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:pushpak.srinivas@udgam.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Co-Head -->
                 <div class="member-card">
-                    <div class="executive-image-wrap">
-                        <img src="https://ui-avatars.com/api/?name=Alex+Turner&background=ff0000&color=fff&size=200" alt="Executive 7" class="executive-image">
+                    <div class="member-image">
+                        <img src="/img/team/adarsh.webp" alt="Adarsh Gupta" class="member-img">
                     </div>
                     <div class="member-info">
                         <h3>Adarsh Gupta</h3>
-                        <p class="role">Website Committee Co-Head</p>
+                        <div class="role">Website Committee Co-Head</div>
                         <p class="description">Bringing technical expertise and creative solutions to enhance UDGAM's web presence.</p>
                         <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/in/adarsh-gupta" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/adarsh-gupta" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:adarsh.gupta@udgam.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2745,24 +2804,6 @@ body {
             updateScroll();
         });
     });
-    </script>
-    <script>
-        function toggleMenu() {
-          const menu = document.querySelector('.menu');
-          const hamburger = document.querySelector('.hamburger');
-          if (menu.classList.contains('active')) {
-            // Add closing animation
-            menu.classList.add('closing');
-            hamburger.classList.remove('active');
-            setTimeout(() => {
-              menu.classList.remove('active', 'closing');
-            }, 500); // Match the duration of the closing animation
-          } else {
-            // Open the menu with expanding animation
-            menu.classList.add('active');
-            hamburger.classList.add('active');
-          }
-        }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {

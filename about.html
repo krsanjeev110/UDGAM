@@ -20,8 +20,23 @@
 
 body {
   background: #000;
-  overflow: hidden;
   font-family: 'Anton', sans-serif;
+}
+
+/* Logo styles */
+.brand {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 150px;
+  height: 70px;
+  object-fit: contain;
 }
 
 .nav-btn {
@@ -36,7 +51,6 @@ body {
   border-radius: 100%;
   cursor: pointer;
   color: white;
-
 }
 
 .hamburger {
@@ -173,6 +187,11 @@ body {
 
 </head>
 <body>
+    <!-- Add logo -->
+    <a href="index.html" class="brand">
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" loading="lazy" alt="" class="nav-logo"/>
+    </a>
+
     <div class="nav-btn">
         <!-- Hamburger Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
@@ -198,24 +217,9 @@ body {
         <div class="footer-text">RHYTHM OF REALM</div>
         <div class="photo-credit">Photo Credits - The Photography Club VIT</div>
       </nav>
+
     <!-- Navigation -->
-    <nav class="nav-bar">
-        <div class="nav-container">
-            <a href="index.html" class="brand">
-                <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="nav-logo">
-            </a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="events.html" class="nav-link">Events</a>
-                <a href="team.html" class="nav-link">Team</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button class="menu-button">
-                <span class="menu-icon"></span>
-            </button>
-        </div>
-    </nav>
+
 
     <!-- Hero Section -->
     <section class="hero-section">
