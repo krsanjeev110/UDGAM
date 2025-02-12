@@ -3257,3 +3257,8 @@ margin: 0 auto;
       font-size: 12px;
       font-family: Arial, sans-serif;
     }
+    .register-button{
+
+        border-color: var(--scrollbar-color);
+        border: #00e5ff solid;
+    }
