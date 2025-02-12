@@ -95,8 +95,8 @@
       </div>
     
       <nav class="menu">
-        <!-- Logo in the top-left corner -->
-        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" style="position: sticky; top: 0;" />
+        <!-- Logo in the top-left corner 
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" style="position: sticky; top: 0;" />--->
     
         <div class="menu-image"></div>
         <div class="menu-items">
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="menu-but"><img
-                        src="https://cdn.prod.website-files.com/66db7f57ef9c0c7a7026f696/66db7f57ef9c0c7a7026f6cc_Menu%20Icon.svg"
+                        src=""
                         loading="lazy" alt="" class="menu-icon" /></div>
             </div>
         </div>
@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div style="opacity:0" class="main-background-holder">
-                <video autoplay muted loop playsinline class="main-background-image">
+                <video autoplay muted loop playsinline class="main-background-video" style="object-fit: fill; width: 100%; height: 110vh;">
                     <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4"
                         type="video/mp4">
                 </video>
@@ -200,6 +200,9 @@
                 </button>
             </div>
         </div>
+        <style>
+
+        </style>
     </div>
     </div>
 </section>
@@ -359,6 +362,86 @@
         </div>
     </div> -->
 
+    <section class="paralax-gallery">
+        <main>
+            <ul class='slider'>
+                <li class='item'
+                    style="background-image: url('/img/e-sports/3.png')">
+                    <div class='content'>
+                        <h2 class='title'>"Lossless Youths"</h2>
+                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                            praesentium nisi. Id laboriosam ipsam enim. </p>
+                        <button class="register-button">Register Now</button>
+                    </div>
+                </li>
+                <li class='item' style="background-image: url('/img/e-sports/7.png')">
+                    <div class='content'>
+                        <h2 class='title'>"Estrange Bond"</h2>
+                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                            praesentium nisi. Id laboriosam ipsam enim. </p>
+                        <a href="http://">
+                        <button class="register-button">Register Now</button></a>
+                    </div>
+                </li>
+                <li class='item'
+                    style="background-image: url('/img/e-sports/1.png')">
+                    <div class='content'>
+                        <h2 class='title'>"The Gate Keeper"</h2>
+                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                            praesentium nisi. Id laboriosam ipsam enim. </p>
+                        <a href="http://">
+                        <button class="register-button">Register Now</button></a>
+                    </div>
+                </li>
+                <li class='item' style="background-image: url('/img/e-sports/8.png')">
+                    <div class='content'>
+                        <h2 class='title'>"Last Trace Of Us"</h2>
+                        <p class='description'>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure
+                            corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+                        </p>
+                        <a href="">
+                        <button class="register-button">Register Now</button></a>
+                    </div>
+                </li>
+                <li class='item'
+                    style="background-image: url('/img/e-sports/2.png')">
+                    <div class='content'>
+                        <h2 class='title'>"Urban Decay"</h2>
+                        <p class='description'>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure
+                            corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+                        </p>
+                        <a href="http://"></a>
+                        <button class="register-button">Register Now</button></a>
+                    </div>
+                </li>
+                <li class='item'
+                    style="background-image: url('/img/e-sports/5.png')">
+                    <div class='content'>
+                        <h2 class='title'>"The Migration"</h2>
+                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                            praesentium nisi. Id laboriosam ipsam enim. </p>
+                        <a href="http://">
+                        <button class="register-button">Register Now</button></a>
+                    </div>
+                </li>
+            </ul>
+            <nav class='nav'>
+                <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+                <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+            </nav>
+        </main>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    </section>
+
         <!-- Sports Events Section -->
         <div class="events-section">
             <div class="events-container">
@@ -463,86 +546,32 @@
 
             
         </div>
+        <!-- Sponsor Section -->
+         <section style="max-width: 80%; height: 50%; display: flex; justify-content: center; margin: 0 auto; padding: 20px 0;">
+        <div class="sponsor-section">
+            <h2 style="text-align: center; font-weight: bold; font-size: 3em; color: white;">Our <span style="color: skyblue;">Sponsors</span></h2>
+            <p style="text-align: center; color: white; margin: 20px 0;">We are grateful for the support of our sponsors. Their contributions make this event possible.</p>
+            <div class="sponsor-list" style="display: flex; justify-content: space-between; margin-top: 50px;">
+                <div class="sponsor">
+                    <img src="img/e-sports/1.png" alt="Sponsor 1" style="max-width: 100px; max-height: 100px;">
+                </div>
+                <div class="sponsor">
+                    <img src="img/e-sports/2.png" alt="Sponsor 2" style="max-width: 100px; max-height: 100px;">
+                </div>
+                <div class="sponsor">
+                    <img src="img/e-sports/3.png" alt="Sponsor 3" style="max-width: 100px; max-height: 100px;">
+                </div>
+                <!-- Add more sponsors as needed -->
+            </div>
+        </div>
+</section>
 
-    <section class="paralax-gallery">
-        <main>
-            <ul class='slider'>
-                <li class='item'
-                    style="background-image: url('/img/e-sports/3.png')">
-                    <div class='content'>
-                        <h2 class='title'>"Lossless Youths"</h2>
-                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-                            praesentium nisi. Id laboriosam ipsam enim. </p>
-                        <button class="register-button">Register Now</button>
-                    </div>
-                </li>
-                <li class='item' style="background-image: url('/img/e-sports/7.png')">
-                    <div class='content'>
-                        <h2 class='title'>"Estrange Bond"</h2>
-                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-                            praesentium nisi. Id laboriosam ipsam enim. </p>
-                        <a href="http://">
-                        <button class="register-button">Register Now</button></a>
-                    </div>
-                </li>
-                <li class='item'
-                    style="background-image: url('/img/e-sports/1.png')">
-                    <div class='content'>
-                        <h2 class='title'>"The Gate Keeper"</h2>
-                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-                            praesentium nisi. Id laboriosam ipsam enim. </p>
-                        <a href="http://">
-                        <button class="register-button">Register Now</button></a>
-                    </div>
-                </li>
-                <li class='item' style="background-image: url('/img/e-sports/8.png')">
-                    <div class='content'>
-                        <h2 class='title'>"Last Trace Of Us"</h2>
-                        <p class='description'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure
-                            corporis inventore praesentium nisi. Id laboriosam ipsam enim.
-                        </p>
-                        <a href="">
-                        <button class="register-button">Register Now</button></a>
-                    </div>
-                </li>
-                <li class='item'
-                    style="background-image: url('/img/e-sports/2.png')">
-                    <div class='content'>
-                        <h2 class='title'>"Urban Decay"</h2>
-                        <p class='description'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure
-                            corporis inventore praesentium nisi. Id laboriosam ipsam enim.
-                        </p>
-                        <a href="http://"></a>
-                        <button class="register-button">Register Now</button></a>
-                    </div>
-                </li>
-                <li class='item'
-                    style="background-image: url('/img/e-sports/5.png')">
-                    <div class='content'>
-                        <h2 class='title'>"The Migration"</h2>
-                        <p class='description'> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-                            praesentium nisi. Id laboriosam ipsam enim. </p>
-                        <a href="http://">
-                        <button class="register-button">Register Now</button></a>
-                    </div>
-                </li>
-            </ul>
-            <nav class='nav'>
-                <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
-                <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
-            </nav>
-        </main>
 
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    </section>
+
+
+
+
 
 
     <script>
