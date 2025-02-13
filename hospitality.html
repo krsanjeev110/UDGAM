@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitality - UDGAM 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="styles/index.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Hospitality Page Specific Styles */
+        .hospitality-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hospitality-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #87CEEB;
+        }
+
+        .hospitality-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accommodation-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .accommodation-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .accommodation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .accommodation-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .accommodation-content {
+            padding: 1.5rem;
+        }
+
+        .accommodation-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .accommodation-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .amenities-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .amenities-list i {
+            color: #87CEEB;
+            margin-right: 0.5rem;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #87CEEB;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .map-section {
+            height: 400px;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="nav-btn">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <div class="menu-image"></div>
+        <div class="menu-items">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="team.html">TEAMS</a>
+            <a href="sports.html">EXTERNAL EVENTS</a>
+            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        <div class="footer-text">RHYTHM OF REALM</div>
+        <div class="photo-credit">Photo Credits - The Photography Club SRM AP</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hospitality-hero">
+        <div>
+            <h1>Hospitality at UDGAM</h1>
+            <p>Experience comfort and convenience during your stay at UDGAM 2025. We ensure that your focus remains on the game while we take care of everything else.</p>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section class="accommodation-section">
+        <div class="section-title">
+            <h2>Accommodation Options</h2>
+            <p>Choose from our carefully selected accommodation options to make your stay comfortable and memorable.</p>
+        </div>
+
+        <div class="accommodation-grid">
+            <!-- Hostel Accommodation -->
+            <div class="accommodation-card">
+                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop" alt="Hostel Accommodation">
+                <div class="accommodation-content">
+                    <h3>Hostel Accommodation</h3>
+                    <p>Stay in our modern university hostels with all essential amenities.</p>
+                    <ul class="amenities-list">
+                        <li><i class="fas fa-bed"></i> Comfortable beds</li>
+                        <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                        <li><i class="fas fa-utensils"></i> Mess facility</li>
+                        <li><i class="fas fa-shield-alt"></i> 24/7 Security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Guest House -->
+            <div class="accommodation-card">
+                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2074&auto=format&fit=crop" alt="Guest House">
+                <div class="accommodation-content">
+                    <h3>Guest House</h3>
+                    <p>Premium accommodation for team managers and officials.</p>
+                    <ul class="amenities-list">
+                        <li><i class="fas fa-concierge-bell"></i> Room service</li>
+                        <li><i class="fas fa-coffee"></i> Complimentary breakfast</li>
+                        <li><i class="fas fa-air-conditioner"></i> AC rooms</li>
+                        <li><i class="fas fa-parking"></i> Parking available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hotel Partners -->
+            <div class="accommodation-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" alt="Hotel Partners">
+                <div class="accommodation-content">
+                    <h3>Hotel Partners</h3>
+                    <p>Special rates at our partner hotels near the venue.</p>
+                    <ul class="amenities-list">
+                        <li><i class="fas fa-star"></i> Luxury amenities</li>
+                        <li><i class="fas fa-shuttle-van"></i> Transport to venue</li>
+                        <li><i class="fas fa-dumbbell"></i> Fitness center</li>
+                        <li><i class="fas fa-percent"></i> Special UDGAM rates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="section-title">
+            <h2>Need Assistance?</h2>
+            <p>Our hospitality team is here to help you with any queries regarding your stay.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p>+91 98765 43210</p>
+                <p>Available 24/7</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>hospitality@udgam.com</p>
+                <p>Response within 24 hours</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>SRM University AP</p>
+                <p>Andhra Pradesh, India</p>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.3642356078897!2d80.49874661486823!3d16.394742088681622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f27d40f21c55%3A0x1490eae7d5579a20!2sSRM%20University-AP!5e0!3m2!1sen!2sin!4v1645446071357!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-bg-pattern"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Udgam Logo" class="footer-logo">
+                    <p class="footer-tagline">EMBRACE THE SPIRIT OF GAMING</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/srmuap.udgam/" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 Udgam. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (menu.classList.contains('active')) {
+                menu.classList.add('closing');
+                hamburger.classList.remove('active');
+                setTimeout(() => {
+                    menu.classList.remove('active', 'closing');
+                }, 500);
+            } else {
+                menu.classList.add('active');
+                hamburger.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html> 
