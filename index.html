@@ -104,11 +104,12 @@
     
         <div class="menu-image"></div>
         <div class="menu-items">
-          <a href="home.html" class="home">HOME</a>
+          <a href="/" class="home">HOME</a>
           <a href="about.html" class="about">ABOUT</a>
           <a href="team.html">Teams</a>
           <a href="sports.html">EXTERNAL EVENTS</a>
           <a href="sports.html">INTERNAL EVENTS</a>
+          <a href="hospitality.html">HOSPITALITY</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-text">RHYTHM OF REALM</div>
@@ -811,7 +812,7 @@
 
 <script>
 function toggleMute() {
-    const video = document.querySelector('.main-background-image');
+    const video = document.querySelector('.main-background-video');
     const button = document.querySelector('.main-background-holder button');
     if (video.muted) {
         video.muted = false;
@@ -848,4 +849,300 @@ type="text/javascript"></script>
       }
     }
 </script>
+
+<!-- Popup HTML -->
+<div id="welcomePopup" class="popup">
+    <div class="popup-content">
+        <div class="popup-image">
+            <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="popup-logo">
+        </div>
+        <div class="popup-text-content">
+            <span class="close-popup">&times;</span>
+            <h2>Welcome to UDGAM 2025!</h2>
+            <p>Get ready for the ultimate gaming experience. Join us for an epic celebration of gaming culture!</p>
+            <div class="popup-features">
+                <div class="feature">
+                    <i class="fas fa-gamepad"></i>
+                    <span>40+ Events</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <span>5000+ Players</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-trophy"></i>
+                    <span>₹5L+ Prizes</span>
+                </div>
+            </div>
+            <a href="https://udgambackend.onrender.com" class="popup-button">
+                Register Now
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div class="popup-links">
+                <a href="#" class="popup-link">Terms and Conditions</a> | 
+                <a href="#" class="popup-link">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup Styles -->
+<style>
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.popup.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.popup-content {
+    display: flex;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(42, 42, 42, 0.95));
+    border-radius: 20px;
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(135, 206, 235, 0.2);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    border: 1px solid rgba(135, 206, 235, 0.3);
+}
+
+.popup.show .popup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.popup-image {
+    flex: 1;
+    background-image: url('https://example.com/new-background-image.jpg'); /* Replace with a high-quality image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.3), rgba(0, 0, 0, 0.8));
+}
+
+.popup-logo {
+    width: 180px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px rgba(135, 206, 235, 0.5));
+}
+
+.popup-text-content {
+    flex: 1;
+    padding: 40px;
+    text-align: left;
+}
+
+.popup-content h2 {
+    color: #87CEEB;
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+}
+
+.popup-content p {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.popup-features {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(135, 206, 235, 0.3);
+    border-bottom: 1px solid rgba(135, 206, 235, 0.3);
+}
+
+.feature {
+    text-align: center;
+    color: #fff;
+}
+
+.feature i {
+    color: #87CEEB;
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.feature i:hover {
+    transform: scale(1.2);
+}
+
+.feature span {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.close-popup {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 28px;
+    color: #87CEEB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.close-popup:hover {
+    color: #fff;
+    background: rgba(135, 206, 235, 0.3);
+    transform: rotate(90deg);
+}
+
+.popup-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #87CEEB, #5f9eb3);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.5);
+}
+
+.popup-button:hover {
+    background: linear-gradient(135deg, #5f9eb3, #87CEEB);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.6);
+}
+
+.popup-button i {
+    transition: transform 0.3s;
+}
+
+.popup-button:hover i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        flex-direction: column;
+    }
+    
+    .popup-image {
+        min-height: 200px;
+    }
+    
+    .popup-logo {
+        width: 120px;
+    }
+    
+    .popup-text-content {
+        padding: 30px;
+    }
+    
+    .popup-content h2 {
+        font-size: 24px;
+    }
+    
+    .popup-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.popup-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.popup-link {
+    color: #87CEEB;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: color 0.3s;
+}
+
+.popup-link:hover {
+    color: #fff;
+    opacity: 1;
+}
+</style>
+
+<!-- Popup Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const popup = document.getElementById('welcomePopup');
+        popup.classList.add('show');
+    }, 5000); // Show after 5 seconds
+
+    // Close popup when clicking the close button
+    document.querySelector('.close-popup').addEventListener('click', function() {
+        const popup = document.getElementById('welcomePopup');
+        popup.classList.remove('show');
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 300);
+    });
+
+    // Close popup when clicking outside
+    document.getElementById('welcomePopup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            const popup = document.getElementById('welcomePopup');
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        }
+    });
+});
+</script>
+
 </html>
