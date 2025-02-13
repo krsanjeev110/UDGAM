@@ -764,9 +764,7 @@ div:has(.w-webflow-badge) {
 .events-bg-pattern {
     position: absolute;
     inset: 0;
-    background-image:
-        radial-gradient(circle at 20% 50%, rgba(196, 30, 58, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+    background: black;
     opacity: 0.5;
     transform: translateZ(-50px);
     will-change: transform;
