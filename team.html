@@ -1666,7 +1666,6 @@
 
 body {
   background: #000;
-  overflow: hidden;
   font-family: 'Anton', sans-serif;
 }
 
@@ -1675,13 +1674,14 @@ body {
   top: 20px;
   right: 20px;
   z-index: 100000;
-  display: flex;
-  gap: 10px;
-  background-color: #87CEEB;
+  background-color: transparent;
   padding: 15px;
   cursor: pointer;
-  color: white;
+  transition: all 0.3s ease;
+}
 
+.nav-btn:hover {
+  transform: scale(1.1);
 }
 
 .hamburger {
@@ -1697,12 +1697,12 @@ body {
 .hamburger span {
   width: 100%;
   height: 3px;
-  background: #ffffff;
+  background: #87CEEB;
   transition: all 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(5px, 8px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -1710,7 +1710,7 @@ body {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5px, -8px);
 }
 
 .menu {
@@ -1719,81 +1719,104 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  transform-origin: top right;
-  /* Expand from the top-right corner */
-  transform: scale(0);
-  /* Start with the menu scaled down */
+  visibility: hidden;
   opacity: 0;
-  /* Start with the menu invisible */
-  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
-  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
 }
 
 .menu.active {
-  transform: scale(1);
-  /* Expand the menu to full size */
+  visibility: visible;
   opacity: 1;
-  /* Make the menu visible */
 }
 
-.menu.closing {
-  transform: scale(0);
-  /* Shrink the menu back */
-  opacity: 0;
-  /* Fade out the menu */
-}
-
-.menu-logo {
-  position: absolute;
+.brand {
+  position: fixed;
   top: 20px;
   left: 20px;
-  width: 100px;
-  /* Adjust logo size as needed */
+  z-index: 100000;
+}
+
+.nav-logo {
+  width: 150px;
   height: auto;
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(135, 206, 235, 0.5));
 }
 
 .menu-image {
-  width: 60%;
-  height: 80%;
-  background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
-  /* Sample image URL */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
+  width: 50%;
+  height: 100vh;
+  background: url('https://riviera.vit.ac.in/images/nav-img.svg') center/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.8)
+  );
 }
 
 .menu-items {
-  width: 50%;
-  text-align: right;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
 }
 
 .menu-items a {
   color: white;
   text-decoration: none;
-  font-size: 48px;
-  /* Decreased font size */
+  font-size: 3.5vw;
   line-height: 1.2;
-  display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 900;
-  transition: color 0.3s ease;
-  margin: 10px 0;
-  /* Added spacing between menu items */
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu-items a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #87CEEB;
+  transition: width 0.3s ease;
 }
 
 .menu-items a:hover {
-  color: #2ce6ff;
+  color: #87CEEB;
+  transform: translateX(-10px);
+}
+
+.menu-items a:hover::after {
+  width: 100%;
 }
 
 .menu-items a.home {
-  color: #00e5ff;
+  color: #87CEEB;
 }
 
 .footer-text {
@@ -1802,8 +1825,8 @@ body {
   right: 5%;
   color: white;
   font-size: 24px;
-  /* Decreased font size */
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .photo-credit {
@@ -1814,10 +1837,33 @@ body {
   font-size: 12px;
   font-family: Arial, sans-serif;
 }
-.register-button{
 
-    border-color: var(--scrollbar-color);
-    border: #00e5ff solid;
+@media (max-width: 768px) {
+  .menu-image {
+    display: none;
+  }
+  
+  .menu-items {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .menu-items a {
+    font-size: 7vw;
+  }
+  
+  .footer-text {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    right: 0;
+  }
+  
+  .photo-credit {
+    text-align: center;
+    width: 100%;
+    right: 0;
+  }
 }
 
 
@@ -1848,8 +1894,8 @@ body {
       <a href="/" class="home">HOME</a>
       <a href="about.html" class="about">ABOUT</a>
       <a href="team.html">Teams</a>
-      <a href="events.html">EXTERNAL EVENTS</a>
-      <a href="events.html">INTERNAL EVENTS</a>
+      <a href="sports.html">EXTERNAL EVENTS</a>
+      <a href="sports.html">INTERNAL EVENTS</a>
       <a href="hospitality.html">HOSPITALITY</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -2978,19 +3024,34 @@ body {
         function toggleMenu() {
           const menu = document.querySelector('.menu');
           const hamburger = document.querySelector('.hamburger');
+          
           if (menu.classList.contains('active')) {
-            // Add closing animation
-            menu.classList.add('closing');
+            menu.classList.remove('active');
             hamburger.classList.remove('active');
-            setTimeout(() => {
-              menu.classList.remove('active', 'closing');
-            }, 500); // Match the duration of the closing animation
           } else {
-            // Open the menu with expanding animation
             menu.classList.add('active');
             hamburger.classList.add('active');
           }
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          const menu = document.querySelector('.menu');
+          const hamburger = document.querySelector('.hamburger');
+          const navBtn = document.querySelector('.nav-btn');
+          
+          if (menu.classList.contains('active') && 
+              !menu.contains(e.target) && 
+              !navBtn.contains(e.target)) {
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+          }
+        });
+
+        // Prevent clicks inside menu from closing it
+        document.querySelector('.menu').addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
     </script>
 </body>
 </html> 
