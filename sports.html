@@ -54,7 +54,7 @@
             overflow: hidden;
             perspective: 1000px;
             transform-style: preserve-3d;
-            margin-bottom: 30px;
+            margin-bottom: 0;
         }
 
         .hero-bg {
@@ -258,7 +258,7 @@
 
         /* Tabs Section */
         .tabs-section {
-            padding: 80px 0;
+            padding: 40px 0;
             background: linear-gradient(to bottom, #0a0a0a, #111);
             position: relative;
             overflow: hidden;
@@ -275,7 +275,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             position: relative;
             z-index: 99996;
         }
@@ -344,26 +344,23 @@
         .sports-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            padding: 40px;
+            gap: 30px;
+            padding: 20px;
         }
 
         .sport-card {
-            position: relative;
-            background: rgba(15, 15, 15, 0.95);
+            margin-bottom: 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(135, 206, 235, 0.1);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         .sport-card:hover {
             transform: translateY(-10px);
             border-color: rgba(135, 206, 235, 0.3);
-            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.2);
-            border-color: rgba(0, 191, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 191, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.1);
         }
 
         .sport-image-wrapper {
@@ -396,7 +393,7 @@
 
         .sport-content {
             position: relative;
-            padding: 30px;
+            padding: 20px;
         }
 
         .sport-tag {
@@ -423,65 +420,79 @@
         }
 
         .sport-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #87CEEB;
         }
 
-        .sport-card:hover .sport-title {
-            color: #00bfff;
-            text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-        }
-
-        .sport-desc {
+        .sport-description {
             color: #aaa;
-            font-size: 16px;
+            margin-bottom: 20px;
             line-height: 1.6;
-            margin-bottom: 25px;
         }
 
         .sport-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
         }
 
-        .sport-prize {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
-            font-weight: bold;
-            color: #00bfff;
-            text-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+        .sport-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #87CEEB;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .sport-prize::before {
-            content: '₹';
-            font-size: 20px;
-            margin-right: 4px;
-            opacity: 0.8;
+        .price-tag {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .sport-actions {
+            display: flex;
+            gap: 15px;
+            padding: 0 15px 15px;
+        }
+
+        .download-brochure,
+        .register-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-brochure {
+            background: rgba(135, 206, 235, 0.1);
+            color: #87CEEB;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+        }
+
+        .download-brochure:hover {
+            background: rgba(135, 206, 235, 0.2);
+            transform: translateY(-2px);
         }
 
         .register-btn {
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #00bfff, #0077ff);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            text-transform: uppercase;
+            background: #87CEEB;
+            color: #0a0a0a;
         }
 
         .register-btn:hover {
+            background: #5fb8e3;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
         }
 
         /* Animations */
@@ -1208,11 +1219,11 @@
             <div class="tabs-nav">
                 <button class="tab-btn active" data-tab="internal">
                     <i class="fas fa-running"></i>
-                    Internal Sports
+                    Sports
                 </button>
                 <button class="tab-btn" data-tab="external">
                     <i class="fas fa-trophy"></i>
-                    External Sports
+                    Informals
                 </button>
                 <button class="tab-btn" data-tab="esports">
                     <i class="fas fa-gamepad"></i>
@@ -1235,10 +1246,23 @@
                                 Indoor
                             </span>
                             <h3 class="sport-title">Chess Tournament</h3>
-                            <p class="sport-desc">Strategic board game competition for individual players.</p>
+                            <p class="sport-description">Strategic board game competition for individual players.</p>
                             <div class="sport-meta">
-                                <div class="sport-prize">5,000</div>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1255,10 +1279,23 @@
                                 Indoor
                             </span>
                             <h3 class="sport-title">Table Tennis</h3>
-                            <p class="sport-desc">Singles and doubles table tennis tournament.</p>
+                            <p class="sport-description">Singles and doubles table tennis tournament.</p>
                             <div class="sport-meta">
-                                <div class="sport-prize">3,000</div>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1275,10 +1312,23 @@
                                 Indoor
                             </span>
                             <h3 class="sport-title">Carrom</h3>
-                            <p class="sport-desc">Traditional board game tournament with singles and doubles categories.</p>
+                            <p class="sport-description">Traditional board game tournament with singles and doubles categories.</p>
                             <div class="sport-meta">
-                                <div class="sport-prize">2,000</div>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1293,10 +1343,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Team</span>
                             <h3 class="sport-title">Cricket</h3>
-                            <p class="sport-desc">T20 format cricket tournament with exciting prizes.</p>
+                            <p class="sport-description">T20 format cricket tournament with exciting prizes.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹15,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1306,10 +1369,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Team</span>
                             <h3 class="sport-title">Football</h3>
-                            <p class="sport-desc">5-a-side football tournament with knockout rounds.</p>
+                            <p class="sport-description">5-a-side football tournament with knockout rounds.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹10,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1319,10 +1395,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Team</span>
                             <h3 class="sport-title">Basketball</h3>
-                            <p class="sport-desc">3v3 basketball tournament with exciting matches.</p>
+                            <p class="sport-description">3v3 basketball tournament with exciting matches.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹8,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1337,10 +1426,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Team</span>
                             <h3 class="sport-title">Valorant</h3>
-                            <p class="sport-desc">5v5 tactical shooter tournament with multiple rounds.</p>
+                            <p class="sport-description">5v5 tactical shooter tournament with multiple rounds.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹10,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1350,10 +1452,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Individual</span>
                             <h3 class="sport-title">FIFA 24</h3>
-                            <p class="sport-desc">1v1 football gaming competition with knockout format.</p>
+                            <p class="sport-description">1v1 football gaming competition with knockout format.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹5,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1363,10 +1478,23 @@
                         <div class="sport-info">
                             <span class="sport-tag">Team</span>
                             <h3 class="sport-title">BGMI</h3>
-                            <p class="sport-desc">Squad battle royale tournament with multiple matches.</p>
+                            <p class="sport-description">Squad battle royale tournament with multiple matches.</p>
                             <div class="sport-meta">
-                                <span class="sport-prize">₹8,000</span>
-                                <a href="#" class="register-btn">Register Now</a>
+                                <div class="sport-price">
+                                    <span class="price-tag">Registration Fee:</span>
+                                    ₹499
+                                </div>
+                                <div class="sport-date">March 15, 2024</div>
+                            </div>
+                            <div class="sport-actions">
+                                <a href="path/to/brochure.pdf" class="download-brochure" download>
+                                    <i class="fas fa-download"></i>
+                                    Brochure
+                                </a>
+                                <a href="#register" class="register-btn">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
                             </div>
                         </div>
                     </div>
