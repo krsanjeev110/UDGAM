@@ -929,6 +929,7 @@ type="text/javascript"></script>
     position: relative;
     max-width: 800px;
     width: 90%;
+    margin: 20px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5),
                 0 0 50px rgba(135, 206, 235, 0.2);
     transform: scale(0.7);
@@ -1085,46 +1086,109 @@ type="text/javascript"></script>
 @media (max-width: 768px) {
     .popup-content {
         flex-direction: column;
+        width: 95%;
+        margin: 15px;
     }
     
     .popup-image {
-        min-height: 200px;
+        min-height: 150px;
     }
     
     .popup-logo {
-        width: 120px;
+        width: 100px;
     }
     
     .popup-text-content {
-        padding: 30px;
+        padding: 20px;
     }
     
     .popup-content h2 {
-        font-size: 24px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .popup-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
     }
     
     .popup-features {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        margin: 20px 0;
+        padding: 15px 0;
+    }
+
+    .feature i {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .feature span {
+        font-size: 12px;
+    }
+
+    .popup-button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .close-popup {
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .popup-links {
+        margin-top: 15px;
+    }
+
+    .popup-link {
+        font-size: 11px;
     }
 }
 
-.popup-links {
-    margin-top: 20px;
-    text-align: center;
-}
+@media (max-width: 480px) {
+    .popup-content {
+        width: 100%;
+        margin: 10px;
+        border-radius: 15px;
+    }
 
-.popup-link {
-    color: #87CEEB;
-    text-decoration: none;
-    font-size: 12px;
-    opacity: 0.8;
-    transition: color 0.3s;
-}
+    .popup-image {
+        min-height: 120px;
+    }
 
-.popup-link:hover {
-    color: #fff;
-    opacity: 1;
+    .popup-logo {
+        width: 80px;
+    }
+
+    .popup-text-content {
+        padding: 15px;
+    }
+
+    .popup-content h2 {
+        font-size: 18px;
+    }
+
+    .popup-content p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .feature i {
+        font-size: 20px;
+    }
+
+    .popup-button {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
 }
 </style>
 
