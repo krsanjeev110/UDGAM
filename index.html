@@ -83,6 +83,19 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-container">
+      <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="loading-logo" />
+      <div class="loading-text">Loading...</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+    <!-- Sporty Background Elements -->
+    <div class="sporty-lines"></div>
+    <div class="sporty-lines reverse"></div>
+  </div>
 
     <a href="https://udgambackend.onrender.com" class="register-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: #87CEEB; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); transition: background-color 0.3s ease; transition: transform 0.3s ease; transition: opacity 0.3s ease; transition: color 0.3s ease;">Register Your Team</a>
 
@@ -211,7 +224,7 @@
     </div>
     </div>
 </section>
-<!-----------------------------------------Hero------------------------->
+<!-----------------------------------------Hero
 <section class="section">
     <div class="w-layout-blockcontainer container-full w-container">
         <div class="about-title slide-up-from-bottom-animation">
@@ -1142,6 +1155,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }
     });
+});
+// Simulate loading process
+window.addEventListener('load', function () {
+  const loadingScreen = document.getElementById('loading-screen');
+
+  // Hide loading screen after content is loaded
+  setTimeout(() => {
+    // Add the fade-out class to trigger the exit animation
+    loadingScreen.classList.add('fade-out');
+
+    // Remove the loading screen from the DOM after the animation ends
+    loadingScreen.addEventListener('animationend', () => {
+      loadingScreen.style.display = 'none';
+    });
+  }, 3000); // Simulate 3 seconds loading time
 });
 </script>
 
