@@ -813,14 +813,108 @@
 </body>
 <script>
     const slider = document.querySelector('.slider');
+    const items = document.querySelectorAll('.item');
+    let currentIndex = 0;
+    let isScrolling = false;
+    let hasCompletedCycle = false;
+    let seenImages = new Set();
+    let isInGallerySection = true;
+    let lastScrollTime = Date.now();
+    const scrollCooldown = 1000; // 1 second cooldown
 
     function activate(e) {
-        const items = document.querySelectorAll('.item');
-        e.target.matches('.next') && slider.append(items[0])
-        e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
+        const currentTime = Date.now();
+        if (!isScrolling && isInGallerySection && currentTime - lastScrollTime > scrollCooldown) {
+            isScrolling = true;
+            lastScrollTime = currentTime;
+            const items = document.querySelectorAll('.item');
+            
+            if (e.deltaY > 0) {
+                // Next image
+                slider.append(items[0]);
+                seenImages.add(items[0].getAttribute('data-index'));
+                
+                // Check if we've seen all images
+                if (seenImages.size === items.length) {
+                    hasCompletedCycle = true;
+                }
+                
+                // Move to next section only if we've seen all images and we're at the last one
+                if (hasCompletedCycle && items[0].getAttribute('data-index') === (items.length - 1).toString()) {
+                    const nextSection = document.querySelector('.paralax-gallery').nextElementSibling;
+                    if (nextSection) {
+                        isInGallerySection = false;
+                        setTimeout(() => {
+                            nextSection.scrollIntoView({ behavior: 'smooth' });
+                        }, scrollCooldown);
+                    }
+                }
+            } else {
+                // Previous image
+                slider.prepend(items[items.length - 1]);
+            }
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, scrollCooldown);
+        }
     }
 
-    document.addEventListener('click', activate, false);
+    // Add data-index to each item
+    items.forEach((item, index) => {
+        item.setAttribute('data-index', index.toString());
+    });
+
+    // Handle scroll events
+    window.addEventListener('wheel', function(e) {
+        const gallery = document.querySelector('.paralax-gallery');
+        const rect = gallery.getBoundingClientRect();
+        
+        if (rect.top <= 0 && rect.bottom >= 0 && isInGallerySection) {
+            e.preventDefault();
+            activate(e);
+        }
+    }, { passive: false });
+
+    // Reset gallery state when scrolling back to it
+    window.addEventListener('scroll', function() {
+        const gallery = document.querySelector('.paralax-gallery');
+        const rect = gallery.getBoundingClientRect();
+        
+        if (rect.top > 0) {
+            isInGallerySection = true;
+            hasCompletedCycle = false;
+            seenImages.clear();
+            lastScrollTime = 0;
+        }
+    });
+
+    // Handle touch events for mobile
+    let touchStartY = 0;
+    let lastTouchTime = 0;
+    
+    slider.addEventListener('touchstart', e => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', e => {
+        const currentTime = Date.now();
+        const gallery = document.querySelector('.paralax-gallery');
+        const rect = gallery.getBoundingClientRect();
+        
+        if (rect.top <= 0 && rect.bottom >= 0 && isInGallerySection && 
+            currentTime - lastTouchTime > scrollCooldown) {
+            const touchEndY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchEndY;
+
+            if (Math.abs(deltaY) > 50) {
+                e.preventDefault();
+                lastTouchTime = currentTime;
+                activate({ deltaY: deltaY });
+                touchStartY = touchEndY;
+            }
+        }
+    }, { passive: false });
 </script>
 
 <script>
@@ -863,7 +957,7 @@ type="text/javascript"></script>
     }
 </script>
 
-<!-- Popup HTML -->
+<!-- Popup HTML
 <div id="welcomePopup" class="popup">
     <div class="popup-content">
         <div class="popup-image">
@@ -899,7 +993,7 @@ type="text/javascript"></script>
     </div>
 </div>
 
-<!-- Popup Styles -->
+Popup Styles 
 <style>
 .popup {
     display: none;
@@ -1192,7 +1286,7 @@ type="text/javascript"></script>
 }
 </style>
 
-<!-- Popup Script -->
+Popup Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
