@@ -518,7 +518,7 @@ body {
         <div class="menu-items">
           <a href="home.html" class="home">HOME</a>
           <a href="about.html" class="about">ABOUT</a>
-          <a href="team.html">Teams</a>
+          <a href="teams.html">Teams</a>
           <a href="events.html">EXTERNAL EVENTS</a>
           <a href="events.html">INTERNAL EVENTS</a>
           <a href="contact.html">Contact</a>

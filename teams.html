@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDGAM'25 Teams</title>
+    <link href="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-btn, .brand {
+            position: fixed;
+            z-index: 1000;
+        }
+
+        .brand {
+            top: 20px;
+            left: 20px;
+        }
+
+        .nav-btn {
+            top: 20px;
+            right: 20px;
+            background: rgba(135, 206, 235, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .nav-logo {
+            width: 150px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        /* Main Container */
+        .main-container {
+            height: auto;
+            overflow-y: visible;
+            scroll-snap-type: none;
+        }
+
+        section {
+            height: auto;
+            scroll-snap-align: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+                        url('https://testfiles-udgam-six.vercel.app/img/e-sports/3.png') center/cover fixed;
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(135, 206, 235, 0.1) 0%, transparent 100%);
+            animation: shimmer 8s linear infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: #87CEEB;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s forwards;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 7rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            position: relative;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(135, 206, 235, 0.3);
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(135deg, #fff, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .hero-title span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s forwards 0.4s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) skewX(-45deg);
+            }
+            100% {
+                transform: translateX(100%) skewX(-45deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Team Categories */
+        .category-section {
+            display: flex;
+            flex-direction: column;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #000000, #001a2c);
+        }
+
+        .category-container {
+            min-height: auto;
+            width: 100%;
+            padding: 50px 0;
+            margin-bottom: 30px;
+            position: relative;
+            background: rgba(135, 206, 235, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-header {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            color: #87CEEB;
+            margin-bottom: 50px;
+            position: relative;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(135, 206, 235, 0.5);
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #87CEEB, transparent);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Team Cards */
+        .team-card {
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-card:hover {
+            transform: perspective(1000px) translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(135, 206, 235, 0.4);
+        }
+
+        .card-content {
+            transform-style: preserve-3d;
+        }
+
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border: 3px solid #87CEEB;
+            box-shadow: 0 0 20px rgba(135, 206, 235, 0.3);
+            transform: translateZ(30px);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .member-info {
+            text-align: center;
+            transform: translateZ(20px);
+        }
+
+        .member-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #87CEEB;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
+        }
+
+        .member-role {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transform: translateZ(40px);
+        }
+
+        .social-link {
+            color: #87CEEB;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(135, 206, 235, 0.1);
+        }
+
+        .social-link:hover {
+            color: #fff;
+            transform: translateY(-5px);
+            background: rgba(135, 206, 235, 0.2);
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.2);
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 10px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-dots::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .nav-dots::-webkit-scrollbar-thumb {
+            background: rgba(135, 206, 235, 0.5);
+            border-radius: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .dot:hover::after {
+            content: attr(data-section);
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        .dot.active {
+            background: #87CEEB;
+            transform: scale(1.3);
+            border-color: rgba(135, 206, 235, 0.3);
+            box-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .category-container {
+                padding: 30px 0;
+            }
+
+            .category-header {
+                font-size: 2.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 0 15px;
+            }
+
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .member-name {
+                font-size: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .nav-dots {
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-header {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .member-image {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <a href="index.html" class="brand">
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="" class="nav-logo"/>
+    </a>
+
+    <div class="nav-btn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="dot" data-index="0" data-section="Hero"></div>
+        <div class="dot" data-index="1" data-section="Executive"></div>
+        <div class="dot" data-index="2" data-section="Core Team"></div>
+        <div class="dot" data-index="3" data-section="Website"></div>
+        <div class="dot" data-index="4" data-section="Traditional"></div>
+        <div class="dot" data-index="5" data-section="Informal"></div>
+        <div class="dot" data-index="6" data-section="Hospitality"></div>
+        <div class="dot" data-index="7" data-section="Registration"></div>
+        <div class="dot" data-index="8" data-section="Logistics"></div>
+        <div class="dot" data-index="9" data-section="Writing"></div>
+        <div class="dot" data-index="10" data-section="Publicity"></div>
+        <div class="dot" data-index="11" data-section="Outreach"></div>
+        <div class="dot" data-index="12" data-section="Refreshments"></div>
+        <div class="dot" data-index="13" data-section="Technical"></div>
+        <div class="dot" data-index="14" data-section="Finance"></div>
+        <div class="dot" data-index="15" data-section="Photography"></div>
+        <div class="dot" data-index="16" data-section="Ceremonial"></div>
+        <div class="dot" data-index="17" data-section="Medical"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <p class="hero-subtitle">Welcome to</p>
+                <h1 class="hero-title">
+                    <span>Meet The</span>
+                    <span>Dream Team</span>
+                </h1>
+                <p class="hero-description">Discover the passionate individuals behind UDGAM'25 who work tirelessly to create an unforgettable experience.</p>
+            </div>
+        </section>
+
+        <!-- Executive Section -->
+        <section class="executive-section">
+            <div class="executive-container">
+                <h2 class="category-header">Executive Leadership</h2>
+                <div class="executive-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/1.webp" alt="Dr. Amit Kumar">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Dr. Amit Kumar</h3>
+                                <p class="member-role">Faculty Advisor</p>
+                                <div class="member-social">
+                                    <a href="mailto:amit.kumar@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/2.webp" alt="Sri Nandhan">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Sri Nandhan</h3>
+                                <p class="member-role">Secretary</p>
+                                <div class="member-social">
+                                    <a href="mailto:sri.nandhan@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/3.webp" alt="Rahul Kumar">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Rahul Kumar</h3>
+                                <p class="member-role">Joint Secretary</p>
+                                <div class="member-social">
+                                    <a href="mailto:rahul.kumar@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/4.webp" alt="Priya Sharma">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Priya Sharma</h3>
+                                <p class="member-role">Executive Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:priya.sharma@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/5.webp" alt="Arun Patel">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Arun Patel</h3>
+                                <p class="member-role">Executive Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:arun.patel@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/6.webp" alt="Neha Reddy">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Neha Reddy</h3>
+                                <p class="member-role">Executive Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:neha.reddy@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/7.webp" alt="Vikram Singh">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Vikram Singh</h3>
+                                <p class="member-role">Executive Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:vikram.singh@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .executive-section {
+                    padding: 50px 0;
+                    background: linear-gradient(to bottom, #000000, #001a2c);
+                    overflow: hidden;
+                }
+
+                .executive-container {
+                    max-width: 100%;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+
+                .executive-grid {
+                    display: flex;
+                    gap: 30px;
+                    overflow-x: auto;
+                    padding: 20px 0;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+
+                .executive-grid::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .executive-grid .team-card {
+                    flex: 0 0 300px;
+                    scroll-snap-align: start;
+                }
+
+                /* Gradient fade effect on sides */
+                .executive-container {
+                    position: relative;
+                }
+
+                .executive-container::before,
+                .executive-container::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: 100px;
+                    z-index: 2;
+                    pointer-events: none;
+                }
+
+                .executive-container::before {
+                    left: 0;
+                    background: linear-gradient(to right, #000000, transparent);
+                }
+
+                .executive-container::after {
+                    right: 0;
+                    background: linear-gradient(to left, #000000, transparent);
+                }
+            </style>
+        </section>
+
+        <!-- Team Categories -->
+        <section class="category-section">
+            <!-- Core Team -->
+            <div class="category-container">
+                <h2 class="category-header">Core Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/2.webp" alt="Sri Nandhan">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Sri Nandhan</h3>
+                                <p class="member-role">Secretary</p>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/3.webp" alt="Rahul Kumar">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Rahul Kumar</h3>
+                                <p class="member-role">Joint Secretary</p>
+                                <div class="member-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Committee -->
+            <div class="category-container">
+                <h2 class="category-header">Website</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/37.webp" alt="Pushpak Srinivas">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Pushpak Srinivas</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="https://linkedin.com/in/pushpak-srinivas" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/pushpak-srinivas" class="social-link"><i class="fab fa-github"></i></a>
+                                    <a href="mailto:pushpak.srinivas@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/adarsh.webp" alt="Adarsh Gupta">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Adarsh Gupta</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="https://linkedin.com/in/adarsh-gupta" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/adarsh-gupta" class="social-link"><i class="fab fa-github"></i></a>
+                                    <a href="mailto:adarsh.gupta@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traditional Events -->
+            <div class="category-container">
+                <h2 class="category-header">Traditional</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/27.webp" alt="Praveen">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Praveen</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:praveen@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/28.webp" alt="Sanjay">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Sanjay</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:sanjay@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informal Events -->
+            <div class="category-container">
+                <h2 class="category-header">Informal</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/11.webp" alt="Viraj">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Viraj</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:viraj@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/12.webp" alt="Shreya">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Shreya</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:shreya@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospitality -->
+            <div class="category-container">
+                <h2 class="category-header">Hospitality</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/16.webp" alt="Akhil Mareedu">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Akhil Mareedu</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:akhil@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/17.webp" alt="Riya">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Riya</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:riya@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration -->
+            <div class="category-container">
+                <h2 class="category-header">Registration</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/32.webp" alt="A.Jithin">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">A.Jithin</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:jithin@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/38.webp" alt="Karthik">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Karthik</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:karthik@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logistics -->
+            <div class="category-container">
+                <h2 class="category-header">Logistics</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/39.webp" alt="Harish Bechaa">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Harish Bechaa</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:harish@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/40.webp" alt="Suresh">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Suresh</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:suresh@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Writing -->
+            <div class="category-container">
+                <h2 class="category-header">Writing</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/26.webp" alt="Priyanka">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Priyanka</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:priyanka@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/25.webp" alt="Ananya">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Ananya</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:ananya@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publicity -->
+            <div class="category-container">
+                <h2 class="category-header">Publicity</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/9.webp" alt="Navanit">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Navanit</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:navanit@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/10.webp" alt="Divya">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Divya</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:divya@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outreach -->
+            <div class="category-container">
+                <h2 class="category-header">Outreach</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/29.webp" alt="Rakesh Settipalli">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Rakesh Settipalli</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:rakesh@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/30.webp" alt="Meera">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Meera</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:meera@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refreshments -->
+            <div class="category-container">
+                <h2 class="category-header">Refreshments</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/24.webp" alt="Wasim Raja">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Wasim Raja</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:wasim@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/31.webp" alt="Vardhan">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Vardhan</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:vardhan@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical -->
+            <div class="category-container">
+                <h2 class="category-header">Technical</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/35.webp" alt="Prasana">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Prasana</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:prasana@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/36.webp" alt="Varun">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Varun</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:varun@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance -->
+            <div class="category-container">
+                <h2 class="category-header">Finance</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/33.webp" alt="M.Arjun">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">M.Arjun</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:arjun@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/34.webp" alt="M.Rohan">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">M.Rohan</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:rohan@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photography -->
+            <div class="category-container">
+                <h2 class="category-header">Photography</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/13.webp" alt="Jayadar">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Jayadar</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:jayadar@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/14.webp" alt="Joyson">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Joyson</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:joyson@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ceremonial -->
+            <div class="category-container">
+                <h2 class="category-header">Ceremonial</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/19.webp" alt="Nidhi">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Nidhi</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:nidhi@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/20.webp" alt="Aryan">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Aryan</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:aryan@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical -->
+            <div class="category-container">
+                <h2 class="category-header">Medical</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/22.webp" alt="Rohith">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Rohith</h3>
+                                <p class="member-role">Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:rohith@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="card-content">
+                            <div class="member-image">
+                                <img src="/img/team/23.webp" alt="Kavya">
+                            </div>
+                            <div class="member-info">
+                                <h3 class="member-name">Kavya</h3>
+                                <p class="member-role">Co-Head</p>
+                                <div class="member-social">
+                                    <a href="mailto:kavya@udgam.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 3D Card Effect
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = -(x - centerX) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Navigation Dots Functionality
+        const sections = document.querySelectorAll('section, .category-container');
+        const dots = document.querySelectorAll('.dot');
+        let isScrolling = false;
+
+        // Smooth scroll to section
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                if (!isScrolling) {
+                    isScrolling = true;
+                    const index = parseInt(dot.dataset.index);
+                    let targetSection;
+                    
+                    if (index <= 1) {
+                        // For Hero and Executive sections
+                        targetSection = sections[index];
+                    } else {
+                        // For category containers
+                        targetSection = document.querySelectorAll('.category-container')[index - 2];
+                    }
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 50,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active dot
+                        dots.forEach(d => d.classList.remove('active'));
+                        dot.classList.add('active');
+                    }
+
+                    // Reset scrolling flag after animation
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                }
+            });
+        });
+
+        // Update dots on scroll
+        window.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                const currentPos = window.scrollY + 100;
+                
+                // Check Hero and Executive sections first
+                const heroSection = sections[0];
+                const execSection = sections[1];
+                
+                if (currentPos < heroSection.offsetTop + heroSection.offsetHeight) {
+                    updateActiveDot(0);
+                } else if (currentPos < execSection.offsetTop + execSection.offsetHeight) {
+                    updateActiveDot(1);
+                } else {
+                    // Check category containers
+                    const containers = document.querySelectorAll('.category-container');
+                    containers.forEach((container, index) => {
+                        const sectionTop = container.offsetTop - 100;
+                        const sectionBottom = sectionTop + container.offsetHeight;
+                        
+                        if (currentPos >= sectionTop && currentPos < sectionBottom) {
+                            updateActiveDot(index + 2);
+                        }
+                    });
+                }
+            }
+        });
+
+        function updateActiveDot(index) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[index]) {
+                dots[index].classList.add('active');
+            }
+        }
+
+        // Initial active dot
+        window.dispatchEvent(new Event('scroll'));
+
+        // Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            if (menu) {
+                menu.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html> 
