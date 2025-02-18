@@ -280,6 +280,7 @@
             z-index: 99996;
         }
 
+        
         .tab-btn {
             padding: 15px 30px;
             background: transparent;
@@ -355,31 +356,33 @@
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.3s ease;
-        }
-
-        .sport-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(135, 206, 235, 0.3);
-            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .sport-image-wrapper {
             position: relative;
             width: 100%;
-            height: 50%;
+            padding-top: 100%; /* This makes it square - 1:1 aspect ratio */
             overflow: hidden;
-            object-fit: center;
         }
 
         .sport-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 50%;
-            object-fit: center;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.4s ease;
         }
 
-        .sport-card:hover .sport-image {
-            transform: scale(1.1);
+        /* Update sport-card image styles for cards without wrapper */
+        .sport-card img.sport-image {
+            width: 100%;
+            aspect-ratio: 1/1; /* Forces square aspect ratio */
+            object-fit: cover;
         }
 
         .sport-image-overlay {
@@ -393,71 +396,72 @@
         }
 
         .sport-content {
-            position: relative;
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(10, 10, 10, 0.8);
         }
 
         .sport-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            background: rgba(0, 191, 255, 0.1);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            border-radius: 50px;
-            color: #00bfff;
-            font-size: 14px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .sport-tag i {
-            font-size: 14px;
-        }
-
-        .sport-card:hover .sport-tag {
-            background: rgba(0, 191, 255, 0.2);
-            transform: translateY(-2px);
+            padding: 6px 12px;
+            background: rgba(135, 206, 235, 0.1);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            border-radius: 20px;
+            color: #87CEEB;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .sport-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #87CEEB;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 10px 0;
         }
 
         .sport-description {
-            color: #aaa;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         .sport-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(135, 206, 235, 0.1);
         }
 
         .sport-price {
-            font-size: 24px;
-            font-weight: 700;
-            color: #87CEEB;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 5px;
         }
 
         .price-tag {
-            font-size: 14px;
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        .sport-date {
+            padding: 5px 10px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 15px;
+            color: #87CEEB;
+            font-size: 0.9rem;
         }
 
         .sport-actions {
             display: flex;
             gap: 15px;
-            padding: 0 15px 15px;
+            margin-top: 20px;
         }
 
         .download-brochure,
@@ -476,73 +480,44 @@
         }
 
         .download-brochure {
-            flex: 1;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
             background: rgba(135, 206, 235, 0.1);
             color: #87CEEB;
             border: 1px solid rgba(135, 206, 235, 0.2);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-brochure::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(135, 206, 235, 0.2),
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .download-brochure:hover {
-            background: rgba(135, 206, 235, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.2);
-        }
-
-        .download-brochure:hover::before {
-            left: 100%;
-        }
-
-        .download-brochure:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 8px rgba(135, 206, 235, 0.2);
-        }
-
-        .download-brochure i {
-            font-size: 1.2em;
-            transition: transform 0.3s ease;
-        }
-
-        .download-brochure:hover i {
-            transform: translateY(-2px);
         }
 
         .register-btn {
             background: #87CEEB;
             color: #0a0a0a;
+            border: 1px solid #87CEEB;
         }
 
+        .download-brochure:hover,
         .register-btn:hover {
-            background: #5fb8e3;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .sport-card {
+                margin-bottom: 20px;
+            }
+            
+            .sport-title {
+                font-size: 1.3rem;
+            }
+            
+            .sport-description {
+                font-size: 0.9rem;
+            }
+            
+            .sport-actions {
+                flex-direction: column;
+            }
+            
+            .download-brochure,
+            .register-btn {
+                width: 100%;
+            }
         }
 
         /* Animations */
@@ -1854,7 +1829,7 @@
                     
                     <div class="sport-card">
                         <div class="sport-image-wrapper">
-                            <img src="/UDGAM/img/UDG_Imgs/7.png" alt="Chess" class="sport-image">
+                            <img src="/img/UDG_Imgs/7.png" alt="Chess" class="sport-image">
                             <div class="sport-image-overlay"></div>
                         </div>
                         <div class="sport-content">
