@@ -223,10 +223,20 @@
                 <video autoplay muted loop playsinline class="main-background-video" style="object-fit: fill; width: 100%; height: 110vh;">
                     <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4"
                         type="video/mp4">
+                    <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4"
+                        type="video/mp4" media="(max-width: 600px)">
                 </video>
                 <button onclick="toggleMute()" style="position: absolute; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; border-radius: 5px; background: rgba(0,0,0,0.5); color: white; border: none; cursor: pointer;">
                     <i class="fas fa-volume-mute"></i> Unmute
                 </button>
+            </div>
+            <style>
+                @media (max-width: 600px) {
+                    .main-background-holder {
+                        display: none;
+                    }
+                }
+            </style>
             </div>
         </div>
         <style>
