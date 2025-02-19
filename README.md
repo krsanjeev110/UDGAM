@@ -18,7 +18,7 @@ Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the 
 ## 🎥 Promotional Video
 
 Get a sneak peek into Udgam 2025:
-[![Watch the Video on YouTube](https://raw.githubusercontent.com/Adarshagupta/UDGAM/refs/heads/main/img/about/1.JPG)](https://youtu.be/0m5QmfkGWw0)
+[![Watch the Video on YouTube](https://raw.githubusercontent.com/Adarshaguptarefs/heads/main/img/about/1.JPG)](https://youtu.be/0m5QmfkGWw0)
 
 
 ---
