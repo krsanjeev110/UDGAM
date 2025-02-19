@@ -112,31 +112,29 @@
 
 
     <div class="nav-btn">
-        <!-- Hamburger Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
+    </div>
     
-      <nav class="menu">
-        <!-- Logo in the top-left corner 
-        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" style="position: sticky; top: 0;" />--->
+    <nav class="menu">
+        <!-- Logo in the top-left corner -->
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
     
         <div class="menu-image"></div>
         <div class="menu-items">
-          <a href="/" class="home">HOME</a>
-          <a href="about.html" class="about">ABOUT</a>
-          <a href="teams.html">Teams</a>
-          <a href="sports.html">EXTERNAL EVENTS</a>
-          <a href="sports.html">INTERNAL EVENTS</a>
-          <a href="hospitality.html">HOSPITALITY</a>
-          <a href="contact.html">Contact</a>
+            <a href="/" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="teams.html">Teams</a>
+            <a href="sports.html">EXTERNAL EVENTS</a>
+            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="hospitality.html">HOSPITALITY</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <div class="footer-text">RHYTHM OF REALM</div>
-        <div class="photo-credit">Photo Credits - The Photography Club SRM AP</div>
-      </nav>
+        
+    </nav>
 
     <div data-animation="default" data-collapse="all" data-duration="0" data-easing="ease" data-easing2="ease"
     role="banner" class="navbar w-nav">
@@ -650,15 +648,79 @@
     }
     
     .about-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
     
     .stat-box {
-        padding: 20px;
+        padding: 15px;
     }
     
     .stat-number {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .about-media {
+        margin-top: 40px;
+    }
+
+    .media-container {
+        height: 300px;
+    }
+
+    .media-img.main {
+        width: 90%;
+        height: 250px;
+    }
+
+    .media-img.overlay {
+        width: 70%;
+        height: 200px;
+    }
+
+    .menu-items {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .menu-items a {
+        font-size: 32px;
+        margin: 15px 0;
+    }
+
+    .menu-image {
+        display: none;
+    }
+
+    .footer-text {
+        position: relative;
+        text-align: center;
+        margin-top: 30px;
+        right: auto;
+        bottom: auto;
+    }
+
+    .photo-credit {
+        position: relative;
+        text-align: center;
+        right: auto;
+        bottom: auto;
+        margin-top: 10px;
+    }
+
+    .brand {
+        top: 15px;
+        left: 15px;
+    }
+
+    .nav-logo {
+        width: 120px;
+        height: 50px;
     }
 }
 
@@ -671,18 +733,81 @@
         font-size: 20px;
     }
     
-    .media-container {
-        height: 300px;
+    .about-stats {
+        grid-template-columns: 1fr;
     }
     
+    .stat-box {
+        padding: 12px;
+    }
+    
+    .stat-number {
+        font-size: 28px;
+    }
+
+    .media-container {
+        height: 250px;
+    }
+
     .media-img.main {
-        width: 90%;
         height: 200px;
     }
-    
+
     .media-img.overlay {
-        width: 70%;
-        height: 180px;
+        height: 150px;
+    }
+
+    .menu-items a {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    .nav-btn {
+        padding: 12px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .hamburger {
+        width: 25px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .title-text {
+        font-size: 24px;
+    }
+
+    .about-intro {
+        font-size: 18px;
+    }
+
+    .about-subtitle {
+        font-size: 24px;
+    }
+
+    .stat-box {
+        padding: 10px;
+    }
+
+    .menu-items a {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+}
+
+@media (hover: none) {
+    .stat-box:hover {
+        transform: none;
+    }
+
+    .media-img:hover {
+        transform: none;
+    }
+
+    .menu-items a:hover {
+        color: #87CEEB;
     }
 }
 </style>
@@ -1188,6 +1313,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function activate(e, isButton = false) {
         const currentTime = Date.now();
         if (!isScrolling && isInGallerySection && (isButton || currentTime - lastScrollTime > scrollCooldown)) {
+            // Check if this is a scroll event and if we're scrolling up
+            if (!isButton && e.deltaY < 0) {
+                // Allow normal page scroll when scrolling up
+                return;
+            }
+
             isScrolling = true;
             lastScrollTime = currentTime;
             const items = document.querySelectorAll('.item');
@@ -1212,8 +1343,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, scrollCooldown);
                     }
                 }
-            } else {
-                // Previous image
+            } else if (isButton) {
+                // Previous image only for button clicks
                 slider.prepend(items[items.length - 1]);
             }
 
@@ -1237,10 +1368,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const gallery = document.querySelector('.paralax-gallery');
         const rect = gallery.getBoundingClientRect();
         
-        if (rect.top <= 0 && rect.bottom >= 0 && isInGallerySection) {
+        // Only prevent default and handle gallery when scrolling down
+        if (rect.top <= 0 && rect.bottom >= 0 && e.deltaY > 0 && isInGallerySection) {
             e.preventDefault();
             activate(e);
         }
+        // When scrolling up, allow normal page scroll
+        // The gallery section will be reset when scrolling back to it
     }, { passive: false });
 
     // Reset gallery state when scrolling back to it
@@ -1248,7 +1382,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const gallery = document.querySelector('.paralax-gallery');
         const rect = gallery.getBoundingClientRect();
         
-        if (rect.top > 0) {
+        // Reset gallery state when it comes back into view from the top
+        if (rect.top > -100) {
             isInGallerySection = true;
             hasCompletedCycle = false;
             seenImages.clear();
