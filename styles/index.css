@@ -123,6 +123,9 @@ body {
         opacity 0.3s ease,
         color 0.3s ease;
 }
+.newsletter-input{
+    width: 100%;
+}
 
 .menu-button {
     background-color: #87CEEB;
