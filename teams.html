@@ -431,6 +431,121 @@
                 height: 130px;
             }
         }
+
+        /* Base Navigation Styles */
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            transform-origin: top right;
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .menu.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .menu-image {
+            width: 60%;
+            height: 80%;
+            background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+        }
+
+        .menu-items {
+            width: 50%;
+            text-align: right;
+        }
+
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+            font-size: 48px;
+            line-height: 1.2;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 900;
+            transition: color 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .menu-items a:hover {
+            color: #2ce6ff;
+        }
+
+        .menu-items a.home {
+            color: #00e5ff;
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 60px 20px;
+                overflow-y: auto;
+            }
+
+            .menu-image {
+                display: none;
+            }
+
+            .menu-items {
+                width: 100%;
+                text-align: center;
+                margin: 40px 0;
+            }
+
+            .menu-items a {
+                font-size: 32px;
+                margin: 15px 0;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .menu-logo {
+                width: 100px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu {
+                padding: 40px 15px;
+            }
+
+            .menu-items a {
+                font-size: 24px;
+                margin: 10px 0;
+            }
+
+            .menu-logo {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-items a {
+                font-size: 20px;
+                margin: 8px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -439,9 +554,29 @@
         <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="" class="nav-logo"/>
     </a>
 
-    <div class="nav-btn" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
+    <div class="nav-btn">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+    
+    <nav class="menu">
+        <!-- Logo in the top-left corner -->
+        <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
+    
+        <div class="menu-image"></div>
+        <div class="menu-items">
+            <a href="/" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="teams.html">Teams</a>
+            <a href="sports.html">EXTERNAL EVENTS</a>
+            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="hospitality.html">HOSPITALITY</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
 
     <!-- Navigation Dots -->
     <div class="nav-dots">

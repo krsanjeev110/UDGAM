@@ -94,27 +94,20 @@ body {
   align-items: center;
   padding: 0 5%;
   transform-origin: top right;
-  /* Expand from the top-right corner */
   transform: scale(0);
-  /* Start with the menu scaled down */
   opacity: 0;
-  /* Start with the menu invisible */
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
   z-index: 1000;
 }
 
 .menu.active {
   transform: scale(1);
-  /* Expand the menu to full size */
   opacity: 1;
-  /* Make the menu visible */
 }
 
 .menu.closing {
   transform: scale(0);
-  /* Shrink the menu back */
   opacity: 0;
-  /* Fade out the menu */
 }
 
 .menu-logo {
@@ -122,7 +115,6 @@ body {
   top: 20px;
   left: 20px;
   width: 100px;
-  /* Adjust logo size as needed */
   height: auto;
 }
 
@@ -130,7 +122,6 @@ body {
   width: 60%;
   height: 80%;
   background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
-  /* Sample image URL */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
@@ -145,7 +136,6 @@ body {
   color: white;
   text-decoration: none;
   font-size: 48px;
-  /* Decreased font size */
   line-height: 1.2;
   display: block;
   text-transform: uppercase;
@@ -153,7 +143,6 @@ body {
   font-weight: 900;
   transition: color 0.3s ease;
   margin: 10px 0;
-  /* Added spacing between menu items */
 }
 
 .menu-items a:hover {
@@ -170,7 +159,6 @@ body {
   right: 5%;
   color: white;
   font-size: 24px;
-  /* Decreased font size */
   letter-spacing: 1px;
 }
 
@@ -192,7 +180,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top of everything */
+    z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease;
     overflow: hidden;
@@ -201,14 +189,14 @@ body {
   .loading-container {
     text-align: center;
     position: relative;
-    z-index: 2; /* Ensure content is above background elements */
+    z-index: 2;
   }
   
   .loading-logo {
-    width: 100px; /* Adjust logo size */
+    width: 100px;
     height: auto;
     margin-bottom: 20px;
-    animation: float 3s ease-in-out infinite; /* Add floating effect */
+    animation: float 3s ease-in-out infinite;
   }
   
   .loading-text {
@@ -217,7 +205,7 @@ body {
     color: #00BFFF;
     text-shadow: 0 0 10px #00BFFF;
     margin-bottom: 20px;
-    font-family: 'Orbitron', sans-serif; /* Sporty font */
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
     animation: glow 1.5s infinite alternate;
   }
@@ -377,34 +365,28 @@ body {
     </a>
 
     <div class="nav-btn">
-        <!-- Hamburger Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
+    </div>
     
-      <nav class="menu">
+    <nav class="menu">
         <!-- Logo in the top-left corner -->
         <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
     
         <div class="menu-image"></div>
         <div class="menu-items">
-          <a href="/" class="home">HOME</a>
-          <a href="about.html" class="about">ABOUT</a>
-          <a href="teams.html">Teams</a>
-          <a href="events.html">EXTERNAL EVENTS</a>
-          <a href="events.html">INTERNAL EVENTS</a>
-          <a href="hospitality.html">HOSPITALITY</a>
-          <a href="contact.html">Contact</a>
+            <a href="/" class="home">HOME</a>
+            <a href="about.html" class="about">ABOUT</a>
+            <a href="teams.html">Teams</a>
+            <a href="sports.html">EXTERNAL EVENTS</a>
+            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="hospitality.html">HOSPITALITY</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <div class="footer-text">RHYTHM OF REALM</div>
-        <div class="photo-credit">Photo Credits - The Photography Club VIT</div>
-      </nav>
-
-    <!-- Navigation -->
-
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -515,14 +497,12 @@ body {
       const menu = document.querySelector('.menu');
       const hamburger = document.querySelector('.hamburger');
       if (menu.classList.contains('active')) {
-        // Add closing animation
         menu.classList.add('closing');
         hamburger.classList.remove('active');
         setTimeout(() => {
           menu.classList.remove('active', 'closing');
-        }, 500); // Match the duration of the closing animation
+        }, 500);
       } else {
-        // Open the menu with expanding animation
         menu.classList.add('active');
         hamburger.classList.add('active');
       }
@@ -531,16 +511,13 @@ body {
 window.addEventListener('load', function () {
   const loadingScreen = document.getElementById('loading-screen');
 
-  // Hide loading screen after content is loaded
   setTimeout(() => {
-    // Add the fade-out class to trigger the exit animation
     loadingScreen.classList.add('fade-out');
 
-    // Remove the loading screen from the DOM after the animation ends
     loadingScreen.addEventListener('animationend', () => {
       loadingScreen.style.display = 'none';
     });
-  }, 3000); // Simulate 3 seconds loading time
+  }, 3000);
 });
 </script>
 </html> 
