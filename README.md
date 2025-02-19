@@ -9,7 +9,7 @@ Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the 
   Your browser does not support the video tag. 
 </video>
 
-=======
+
 ## 🎥 Promotional Video
 
 Get a sneak peek into Udgam 2025:
