@@ -3242,7 +3242,7 @@ margin: 0 auto;
     .menu-image {
       width: 60%;
       height: 80%;
-      background-image: url('/img/sports/1.png');
+      background-image: url('/sports/race.gif');
       /* Sample image URL */
       background-size: cover;
       background-position: center;
