@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize custom cursor
     const cursor = document.createElement('div');
@@ -199,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const gallerySection = document.querySelector('.gallery-section');
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -267,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const menuOverlay = document.querySelector('.menu-overlay');
@@ -360,6 +363,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const video = document.querySelector('.main-background-image');
     const cursor = document.querySelector('.custom-cursor');
@@ -375,6 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
     video.addEventListener('volumechange', updateCursor);
     updateCursor();
 });
+
 gsap.registerPlugin(CustomEase, Flip )
 
 CustomEase.create("osmo-ease", "0.625, 0.05, 0, 1")

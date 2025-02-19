@@ -546,6 +546,310 @@
                 margin: 8px 0;
             }
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  font-family: 'Anton', sans-serif;
+}
+
+.nav-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100000;
+  display: flex;
+  gap: 10px;
+  background-color: #87CEEB;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  transform-origin: top right;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.menu.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.menu.closing {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.menu-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: auto;
+}
+
+.menu-image {
+  width: 60%;
+  height: 80%;
+  background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  object-fit: center;
+}
+
+.menu-items {
+  width: 40%;
+  text-align: right;
+}
+
+.menu-items a {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  line-height: 1.2;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  transition: color 0.3s ease;
+  margin: 10px 0;
+}
+
+.menu-items a:hover {
+  color: #2ce6ff;
+}
+
+.menu-items a.home {
+  color: #00e5ff;
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 40px;
+  right: 5%;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.photo-credit {
+  position: absolute;
+  bottom: 15px;
+  right: 5%;
+  color: #666;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+.register-button{
+    border-color: var(--scrollbar-color);
+    border: #00e5ff solid;
+}
+/* Loading Screen Styles */
+#loading-screen {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, #0A0A0A, #121212);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+opacity: 1;
+transition: opacity 0.5s ease;
+overflow: hidden;
+}
+
+.loading-container {
+text-align: center;
+position: relative;
+z-index: 2;
+}
+
+.loading-logo {
+width: 100px;
+height: auto;
+margin-bottom: 20px;
+animation: float 3s ease-in-out infinite;
+}
+
+.loading-text {
+font-size: 28px;
+font-weight: bold;
+color: #00BFFF;
+text-shadow: 0 0 10px #00BFFF;
+margin-bottom: 20px;
+font-family: 'Orbitron', sans-serif;
+letter-spacing: 2px;
+animation: glow 1.5s infinite alternate;
+}
+
+.loading-bar {
+width: 250px;
+height: 10px;
+background: #333;
+border-radius: 5px;
+overflow: hidden;
+position: relative;
+}
+
+.loading-progress {
+width: 0;
+height: 100%;
+background: linear-gradient(90deg, #00BFFF, #00FFFF);
+border-radius: 5px;
+animation: loading 2s infinite;
+}
+
+/* Sporty Background Lines */
+.sporty-lines {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: repeating-linear-gradient(
+  45deg,
+  transparent,
+  transparent 40px,
+  rgba(0, 191, 255, 0.2) 40px,
+  rgba(0, 191, 255, 0.2) 80px
+);
+animation: moveLines 20s linear infinite;
+z-index: 1;
+pointer-events: none;
+}
+
+.sporty-lines.reverse {
+animation: moveLinesReverse 20s linear infinite;
+background: repeating-linear-gradient(
+  -45deg,
+  transparent,
+  transparent 40px,
+  rgba(0, 191, 255, 0.15) 40px,
+  rgba(0, 191, 255, 0.15) 80px
+);
+}
+
+/* Move lines animation */
+@keyframes moveLines {
+0% {
+  transform: translateY(0);
+}
+100% {
+  transform: translateY(-100%);
+}
+}
+
+@keyframes moveLinesReverse {
+0% {
+  transform: translateY(-100%);
+}
+100% {
+  transform: translateY(0);
+}
+}
+/* Floating animation for logo */
+@keyframes float {
+0%, 100% {
+  transform: translateY(0);
+}
+50% {
+  transform: translateY(-10px);
+}
+}
+
+/* Loading animation for progress bar */
+@keyframes loading {
+0% {
+  width: 0;
+}
+50% {
+  width: 100%;
+}
+100% {
+  width: 0;
+}
+}
+
+/* Glow animation for text */
+@keyframes glow {
+0% {
+  text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF;
+}
+100% {
+  text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+}
+}
+
+/* Exit Animation for Loading Screen */
+#loading-screen.fade-out {
+animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+0% {
+  opacity: 1;
+  transform: scale(1);
+}
+100% {
+  opacity: 0;
+  transform: scale(0.9);
+}
+}
     </style>
 </head>
 <body>
@@ -571,11 +875,11 @@
             <a href="/" class="home">HOME</a>
             <a href="about.html" class="about">ABOUT</a>
             <a href="teams.html">Teams</a>
-            <a href="sports.html">EXTERNAL EVENTS</a>
-            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="sports.html">EVENTS</a>
             <a href="hospitality.html">HOSPITALITY</a>
             <a href="contact.html">Contact</a>
         </div>
+        
     </nav>
 
     <!-- Navigation Dots -->

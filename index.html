@@ -87,6 +87,17 @@
             scroll-behavior: smooth;
         }
 
+    .menu-image {
+      width: 60%;
+      height: 80%;
+      background-image: url('/img/sports/1.png');
+      /* Sample image URL */
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      object-fit: center;
+    }
+
         /* Optional: Add smooth scrolling with custom speed using JavaScript */
     </style>
 </head>
@@ -123,29 +134,20 @@
         <!-- Logo in the top-left corner -->
         <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="menu-logo" />
     
-        <div class="menu-image"></div>
+        <div class="menu-image">
+            <img src="sports/1.png" alt="" sizes="" srcset="">
+        </div>
         <div class="menu-items">
-<<<<<<< HEAD
             <a href="/" class="home">HOME</a>
             <a href="about.html" class="about">ABOUT</a>
             <a href="teams.html">Teams</a>
-            <a href="sports.html">EXTERNAL EVENTS</a>
-            <a href="sports.html">INTERNAL EVENTS</a>
+            <a href="sports.html">EVENTS</a>
             <a href="hospitality.html">HOSPITALITY</a>
             <a href="contact.html">Contact</a>
         </div>
         
     </nav>
-=======
-          <a href="/" class="home">HOME</a>
-          <a href="sports.html">EVENTS</a>
-          <a href="hospitality.html">HOSPITALITY</a>
-          <a href="team.html">Teams</a>
-          <a href="contact.html">Contact</a>
-        </div>
- 
-      </nav>
->>>>>>> dc3301859b86524c5c2259298672cb2aa7ef9164
+
 
 
 
@@ -292,11 +294,10 @@
                     </div>
                     
                     <div class="about-media">
-                        <img src="/sports/03.jpg" alt="Gaming Event" class="media-img main">
 
                         <div class="media-container">
-                            <img src="/sports/01.jpg" alt="Gaming Event" class="media-img main">
-                            <img src="/sports/01.jpg" alt="Competition" class="media-img overlay">
+                            <img src="/img/about/1.JPG" alt="Gaming Event" class="media-img main">
+                            <img src="/img/about/2.JPG" alt="Competition" class="media-img overlay">
                             <div class="floating-elements">
                                 <div class="float-item item1"></div>
                                 <div class="float-item item2"></div>
@@ -882,6 +883,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="paralax-gallery">
     <main>
         <ul class='slider'>
+            
             <li class='item'
                 style="background-image: url('/img/e-sports/7.png')">
                 <div class='content'>
@@ -928,15 +930,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="register-button">Register Now</button></a>
                 </div>
             </li>
-            <li class='item'
-                style="background-image: url('/img/e-sports/5.png')">
-                <div class='content'>
-                    <h2 class='title'>"Stumble Guys"</h2>
-                    <p class='description'> Stumble Guys is a chaotic, multiplayer party game where players race through wacky obstacle courses. Dodge, tumble, and outlast your competitors to be the last one standing! </p>
-                    <a href="https://payment.collexo.com/pay-fee/srm-ap-events">
-                    <button class="register-button">Register Now</button></a>
-                </div>
-            </li>
+           
         </ul>
         <nav class='nav'>
             <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
@@ -963,11 +957,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="tab-button" data-tab="outdoor">Outdoor Sports</button>
                 <button class="tab-button" data-tab="esports">E-Sports</button>
             </div>
-            
+        <a herf="/sports.html">
             <div class="events-slider-container">
                 <!-- Indoor Sports Track -->
                 <div class="events-track" id="indoorTrack">
                     <!-- Cards will be cloned by JavaScript -->
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/7.png" alt="Chess">
                         <div class="event-content">
@@ -975,6 +970,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p> ₹10K Prize</p>
                         </div>
                     </div>
+                    </a>
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/4.png" alt="Table Tennis">
                         <div class="event-content">
@@ -982,6 +979,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p> ₹10K Prize</p>
                         </div>
                     </div>
+                    </a>
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/13.png" alt="Badminton">
                         <div class="event-content">
@@ -993,6 +992,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <!-- Outdoor Sports Track -->
                 <div class="events-track" id="outdoorTrack">
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/1.png" alt="Cricket">
                         <div class="event-content">
@@ -1000,6 +1000,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p> ₹50K Prize</p>
                         </div>
                     </div>
+                    </a>
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/3.png" alt="Football">
                         <div class="event-content">
@@ -1007,6 +1009,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p> ₹50K Prize</p>
                         </div>
                     </div>
+                    </a>
+                    <a href="/sports.html">
                     <div class="event-card">
                         <img src="img/UDG_Imgs/2.png" alt="Basketball">
                         <div class="event-content">
@@ -1015,9 +1019,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                     </div>
+                    </a>
 
                     <!-- E-Sports Track -->
                     <div class="events-track" id="esportsTrack">
+                        <a href="/sports.html">
                         <div class="event-card">
                             <img src="img/UDG_Imgs/val.PNG" alt="Valorant">
                             <div class="event-content">
@@ -1025,6 +1031,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p> ₹5K Prize</p>
                             </div>
                         </div>
+                        </a>
+                        <a href="/sports.html">
                         <div class="event-card">
                             <img src="img/UDG_Imgs/Fifa.PNG" alt="FIFA">
                             <div class="event-content">
@@ -1032,6 +1040,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p>₹5K Prize</p>
                             </div>
                         </div>
+                        </a>
+                        <a href="/sports.html">
                         <div class="event-card">
                             <img src="img/UDG_Imgs/pubg.PNG" alt="BGMI">
                             <div class="event-content">
@@ -1051,7 +1061,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             </style>
 
-            
+        </a>    
         </div>
         <!-- Sponsor Section -->
          <section style="max-width: 80%; height: 50%; display: flex; justify-content: center; margin: 0 auto; padding: 20px 0;">

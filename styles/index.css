@@ -115,7 +115,6 @@ html {
 
 body {
     scroll-padding-top: 80px;
-    cursor: none !important;
 }
 
 * {
@@ -3243,8 +3242,7 @@ margin: 0 auto;
     .menu-image {
       width: 60%;
       height: 80%;
-      background-image: url('https://riviera.vit.ac.in/images/nav-img.svg');
-      background-image: url('sports/race.gif');
+      background-image: url('/img/sports/1.png');
       /* Sample image URL */
       background-size: cover;
       background-position: center;
