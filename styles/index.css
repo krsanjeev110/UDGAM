@@ -3153,7 +3153,7 @@ margin: 0 auto;
 
     .nav-btn {
       position: fixed;
-      top: 20px;
+      top: 30px;
       right: 20px;
       z-index: 100000;
       display: flex;
@@ -3242,7 +3242,7 @@ margin: 0 auto;
     .menu-image {
       width: 60%;
       height: 80%;
-      background-image: url('/sports/race.gif');
+      background-image: url('../sports/race.gif');
       /* Sample image URL */
       background-size: cover;
       background-position: center;
@@ -3253,6 +3253,11 @@ margin: 0 auto;
     .menu-items {
       width: 40%;
       text-align: right;
+    }
+    @media (max-width: 768px) {
+      .middle-name {
+        display: none;
+      }
     }
 
     .menu-items a {
