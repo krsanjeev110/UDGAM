@@ -440,9 +440,194 @@
                 border-radius: 15px;
             }
         }
+        #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0A0A0A, #121212);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+  }
+  
+  .loading-container {
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Ensure content is above background elements */
+  }
+  
+  .loading-logo {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite; /* Add floating effect */
+  }
+  
+  .loading-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00BFFF;
+    text-shadow: 0 0 10px #00BFFF;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif; /* Sporty font */
+    letter-spacing: 2px;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  .loading-bar {
+    width: 250px;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .loading-progress {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #00BFFF, #00FFFF);
+    border-radius: 5px;
+    animation: loading 2s infinite;
+  }
+  
+  /* Sporty Background Lines */
+.sporty-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 191, 255, 0.2) 40px,
+      rgba(0, 191, 255, 0.2) 80px
+    );
+    animation: moveLines 20s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .sporty-lines.reverse {
+    animation: moveLinesReverse 20s linear infinite;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 191, 255, 0.15) 40px,
+      rgba(0, 191, 255, 0.15) 80px
+    );
+  }
+  
+  /* Move lines animation */
+  @keyframes moveLines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  @keyframes moveLinesReverse {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  /* Floating animation for logo */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Loading animation for progress bar */
+  @keyframes loading {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  /* Glow animation for text */
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF;
+    }
+    100% {
+      text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+    }
+  }
+  
+  /* Move lines animation */
+  @keyframes moveLines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  @keyframes moveLinesReverse {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  /* Exit Animation for Loading Screen */
+  #loading-screen.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-container">
+      <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="Logo" class="loading-logo" />
+      <div class="loading-text">Loading...</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+    <!-- Sporty Background Elements -->
+    <div class="sporty-lines"></div>
+    <div class="sporty-lines reverse"></div>
+  </div>
     <!-- Logo -->
     <a href="index.html">
         <img src="https://testfiles-udgam-six.vercel.app/img/UDGAM%20(1).png" alt="UDGAM Logo" class="nav-logo">
@@ -460,15 +645,14 @@
     <nav class="menu">
         <div class="menu-image"></div>
         <div class="menu-items">
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="team.html">TEAMS</a>
-            <a href="sports.html">EXTERNAL EVENTS</a>
-            <a href="sports.html">INTERNAL EVENTS</a>
-            <a href="contact.html">CONTACT</a>
+            <a href="/">Home</a>
+          <a href="sports.html">EVENTS</a>
+          <a href="teams.html">Teams</a>
+          <a href="hospitality.html" class="home">HOSPITALITY</a>
+          <a href="about.html">About</a>
         </div>
-        <div class="footer-text">RHYTHM OF REALM</div>
-        <div class="photo-credit">Photo Credits - The Photography Club SRM AP</div>
+        <div class="footer-text">Udgam 2025</div>
+        <div class="photo-credit">SRM AP</div>
     </nav>
 
     <!-- Hero Section -->
@@ -542,20 +726,21 @@
         </div>
 
         <div class="contact-grid">
+            
             <div class="contact-card">
                 <i class="fas fa-user"></i>
-                <h3>Accommodation Coordinator</h3>
-                <p>Rahul Kumar</p>
-                <p>+91 94567 89012</p>
-                <p>rahul.kumar@srmap.edu.in</p>
+                <h3>Akhil Mareedu</h3>
+                <p>Hospitality Head </p>
+                <p>+91 94913 27444</p>
+                <p>akhil_mareedu@srmap.edu.in</p>
             </div>
 
             <div class="contact-card">
                 <i class="fas fa-user"></i>
-                <h3>Hospitality Head</h3>
-                <p>Priya Singh</p>
-                <p>+91 98765 43210</p>
-                <p>priya.singh@srmap.edu.in</p>
+                <h3>Wasim Raja</h3>
+                <p>Refreshments Head</p>
+                <p>+91 79810 31813</p>
+                <p>wasimraja_budekula@srmap.edu.in</p>
             </div>
 
             <div class="contact-card">
@@ -585,13 +770,7 @@
                         <a href="https://www.instagram.com/srmuap.udgam/" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/school/srmuap/posts/?feedView=all" class="social-link" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -623,6 +802,21 @@
                 hamburger.classList.add('active');
             }
         }
+        // Simulate loading process
+window.addEventListener('load', function () {
+  const loadingScreen = document.getElementById('loading-screen');
+
+  // Hide loading screen after content is loaded
+  setTimeout(() => {
+    // Add the fade-out class to trigger the exit animation
+    loadingScreen.classList.add('fade-out');
+
+    // Remove the loading screen from the DOM after the animation ends
+    loadingScreen.addEventListener('animationend', () => {
+      loadingScreen.style.display = 'none';
+    });
+  }, 3000); // Simulate 3 seconds loading time
+});
     </script>
 </body>
 </html> 

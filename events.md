@@ -518,7 +518,7 @@ body {
         <div class="menu-items">
           <a href="home.html" class="home">HOME</a>
           <a href="about.html" class="about">ABOUT</a>
-          <a href="team.html">Teams</a>
+          <a href="teams.html">Teams</a>
           <a href="events.html">EXTERNAL EVENTS</a>
           <a href="events.html">INTERNAL EVENTS</a>
           <a href="contact.html">Contact</a>
@@ -1406,7 +1406,7 @@ body {
                         <a href="#About">About</a>
                         <a href="events.html">Events</a>
                         <a href="/#Gallery">Gallery</a>
-                        <a href="#register">Register</a>
+                        <a href="https://payment.collexo.com/pay-fee/srm-ap-events">Register</a>
                     </div>
                     <div class="footer-links-column">
                         <h4>Contact Us</h4>
