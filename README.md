@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 6adb078eb7e143f391c8fb51d244583094779135
 # Udgam 2025 - Sports Fest
 
 Welcome to the **Udgam 2025 Sports Fest** website! This repository contains the source code for the official website of Udgam 2025, built using simple HTML, CSS, and JavaScript (KS). The website serves as an information portal for the sports fest, showcasing event details, schedules, registration, and more.
 
 ---
 
-<<<<<<< HEAD
 <video controls width="100%">
   <source src="https://kapkap-common.stariidata.com/web_video/679020b641796521bLt4GZps42590.mp4" type="video/mp4">
   Your browser does not support the video tag. 
