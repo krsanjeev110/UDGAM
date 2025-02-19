@@ -1406,7 +1406,7 @@ body {
                         <a href="#About">About</a>
                         <a href="events.html">Events</a>
                         <a href="/#Gallery">Gallery</a>
-                        <a href="#register">Register</a>
+                        <a href="https://payment.collexo.com/pay-fee/srm-ap-events">Register</a>
                     </div>
                     <div class="footer-links-column">
                         <h4>Contact Us</h4>
